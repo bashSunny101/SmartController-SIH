@@ -7,12 +7,12 @@ function Login({ onLoginSuccess }) {
   const [loginError, setLoginError] = useState('');
 
   const handleLogin = () => {
-    // Perform your login logic here
+    //login logic 
     
-    const isSuccess = true; // Replace with your actual login logic
+    const isSuccess = true; 
 
     if (isSuccess) {
-      // Call the onLoginSuccess function passed as a prop
+      
       onLoginSuccess();
     } else {
       setLoginError('Invalid credentials'); 

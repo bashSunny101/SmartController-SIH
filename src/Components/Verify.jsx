@@ -5,12 +5,9 @@ function Verify({ onVerificationSuccess }) {
   const navigate = useNavigate();
 
   const handleVerification = () => {
-    // Perform your verification process
 
-    // If verification is successful, call the prop function
     onVerificationSuccess();
 
-    // Navigate to the dashboard page
     navigate("/dashboard");
   };
 
