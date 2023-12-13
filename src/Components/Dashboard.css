@@ -1,0 +1,21 @@
+nav {
+  position: relative !important;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.right-grid,
+.graph {
+  display: flex;
+  gap: 1em;
+}
+
+.display {
+  display: flex;
+  gap: 3em;
+  margin: 2em 1em;
+}

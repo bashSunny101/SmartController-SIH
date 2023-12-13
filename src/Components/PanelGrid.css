@@ -1,0 +1,18 @@
+:root {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1em;
+}
+
+.flex {
+  gap: 0.5rem;
+  font-size: 2rem;
+  align-items: center;
+}

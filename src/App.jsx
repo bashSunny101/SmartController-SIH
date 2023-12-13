@@ -27,11 +27,11 @@ function App() {
                 <img src="src\assets\image (4).svg" alt="logo" width={381} height={79} />
                 <div className="text-white font-semibold">Secure Grids, Smarter Connections</div>
               </div>
-              <div className="flex">
-                <div className=" p-4 flex-grow">
+              <div className="flex responsive">
+                <div className=" p-4 stop flex-grow">
                   <img src="src\assets\My Video.gif" alt="microgrid animation" />
                 </div>
-                <div className="inline-block h-auto w-1 rounded-xl self-stretch bg-gray-500 opacity-100 dark:opacity-50"></div>
+                <div className="inline-block h-auto w-1 rounded-xl self-stretch bg-gray-500 opacity-100 dark:opacity-50 line"></div>
                 <div className="ml-20">
                   {!isLoginSuccessful ? (
                     <Login onLoginSuccess={handleLoginSuccess} />
@@ -45,6 +45,8 @@ function App() {
             </div>
           }
         />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Verify" element={<Verify />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
