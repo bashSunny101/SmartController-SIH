@@ -1,23 +1,37 @@
 import React from "react";
+import { Chart } from 'react-google-charts';
+
 
 function Dashboard() {
+  const temperatureData = [
+    ['Year', 'Highest Temperature'],
+    [2017, 32],
+    [2018, 35],
+    [2019, 31],
+    [2020, 37],
+    [2021, 30]];
   return (
     <>
-      <div>
-        <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a
-              href="/"
-              className="flex items-center space-x-3 rtl:space-x-reverse"
-            >
-              <img
-                src="src\assets\image (4).svg"
-                className="h-8"
-                alt="Vidyut Logo"
-              />
-            </a>
+      <div className="flex-col ">
+          <div className="flex justify-between border-gray-700 border-b-2 p-2 ">
+           <img src="src\assets\image (4).svg" alt="logo" className="h-10"/> 
+           <div className=" border-2 rounded-xl text-white px-2 hover:bg-blue-600">Admin</div>
           </div>
-        </nav>
+          <div className="flex">
+            <div className="flex-col fixed mt-8 ml-4  w-64">
+              <div className="text-white border-2 rounded-lg p-3 m-2">Dashboard</div>
+              <div className="text-white border-2 rounded-lg p-3 m-2">Dash</div>
+              <div className="text-white border-2 rounded-lg p-3 m-2">Dashboard</div>
+              <div className="text-white border-2 rounded-lg p-3 m-2">Dashboard</div>
+              <div className="text-white border-2 rounded-lg p-3 m-2">Dashboard</div>
+            </div>
+            <div className="flex-grow">
+              <div><Chart
+                chartType="LineChart"
+                data={temperatureData}
+            /></div>
+            </div>
+          </div>
       </div>
     </>
   );
