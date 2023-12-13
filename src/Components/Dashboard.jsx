@@ -1,5 +1,4 @@
 import React from "react";
-import CircularButtons from "./CircularButtons";
 
 function Dashboard() {
   return (
@@ -19,9 +18,6 @@ function Dashboard() {
             </a>
           </div>
         </nav>
-        <div>
-          <CircularButtons/>
-        </div>
       </div>
     </>
   );
