@@ -2,6 +2,13 @@ nav {
   position: relative !important;
 }
 
+.admin{
+  font-family: "Courier New", Courier, monospace;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 0 1em;
+}
+
 .left-panel {
   display: flex;
   flex-direction: column;
@@ -9,9 +16,32 @@ nav {
 }
 
 .right-grid,
-.graph {
+.graph,
+.row,
+.row-2 {
   display: flex;
   gap: 1em;
+}
+
+.row{
+  margin-top: 1em;
+}
+
+.btn-row{
+  display: flex;
+  gap: 3em;
+  margin: 0 1em;
+}
+
+button.active {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 0 0.2em;
+}
+
+.row2{
+  display: flex;
+  gap: 2em;
 }
 
 .graph{
@@ -26,4 +56,15 @@ nav {
 
 .nav{
   margin: 0 1.5em !important;
+}
+
+.first{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.header{
+  text-align: center;
+  margin-bottom: 1em;
 }

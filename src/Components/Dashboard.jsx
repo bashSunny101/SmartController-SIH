@@ -5,155 +5,20 @@ import AnalyticsIcon from "@mui/icons-material/Analytics";
 import MainGrid from "./MainGrid";
 import MapIcon from "@mui/icons-material/Map";
 import Graph from "./Graph";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-const data = [
+import Info from "./Info";
 
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+const handleClick = (event) => {
+  const activeButton = document.querySelector(".active");
+  if (activeButton) {
+    activeButton.classList.remove("active");
+  }
+  event.target.classList.add("active");
+};
+
 
 function Dashboard() {
-  
   return (
     <>
-      <div className="flex-col ">
-          <header className="flex justify-between border-gray-700 border-b-2 p-2 sticky z-2 ">
-           <img src="src\assets\image (4).svg" alt="logo" className="h-10"/> 
-           <div className=" border-2 rounded-xl text-white px-2 hover:bg-blue-600">Admin</div>
-          </header>
-          <div>
-     <div className='flex justify-end sm:flex-row flex-wrap w-full  h-full pt-4'>
-      <div className="left pl-16 left-0  text-center w-1/3 fixed">
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-         <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
-      </div>
-      <div className=" w-8/12 overflow-y-auto ">
-        <div className="upper flex flex-wrap gap-8 text-center">
-        <div className=' border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Grid Status</div>
-         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Grid Status</div>
-         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Battery SoC</div>
-         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Geospatial Status</div>
-        </div>
-        <div className="mid flex flex-wrap  gap-8 mt-4 text-center">
-        <div className=' border rounded-md ml-8 w-5/12 h-44 mb-2 pt-10 text-white'>
-
-        <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={500}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
-        </div>
-         <div className='border rounded-md w-5/12 h-44 mb-2 pt-10 text-white'>
-         <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
-         </div>
-        </div>
-
-
-        <div className='below flex  items-center justify-center  flex-wrap'>
-          <div className="w-1/2 gap-8  flex flex-wrap">
-        <div className="below-left w-[50%]   gap-8 mt-4 text-center">
-          <div className="w-full flex gap-2">
-        <div className=' border rounded-md  w-1/2  h-32 mb-2 pt-8 text-white'>dash</div>
-        <div className=' border rounded-md  w-1/2  h-32 mb-2 pt-8 text-white'>dash</div>
-        </div>
-         <div className='border rounded-md w-full h-32 mb-2 pt-10 text-white'>dashboard</div>
-        </div>
-        <div className="below-left w-[40%]  mt-4 text-center">
-        <div className=' border rounded-md  w-5/6  h-full mb-2 pt-10 text-white'>dashboard</div>
-         </div>
-        </div>
-        <div className="below-right w-1/2 flex flex-wrap  gap-4 mt-4 text-center">
-        <div className=' border rounded-md  w-[90%]  h-32 mb-2 pt-10 text-white'>dashboard</div>
-        <div className=' border rounded-md  w-[90%]  h-32 mb-2 pt-10 text-white'>dashboard</div>
-        
-        </div>
-
-        </div>
-
-      </div>
-     </div>
-    </div>
       <div>
         <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
           <div className="flex flex-wrap items-center justify-between mx-auto p-4 nav">
@@ -167,6 +32,7 @@ function Dashboard() {
                 alt="Vidyut Logo"
               />
             </a>
+            <div className="admin">Admin</div>
           </div>
         </nav>
         <div className="display">
@@ -214,6 +80,58 @@ function Dashboard() {
                 pow32="30KW"
                 pow33="20KW"
               />
+            </div>
+            <div className="row">
+              <div className="first">
+                <div className="row-2">
+                  <MainGrid title="IDS" main="Active" color="green" />
+                  <MainGrid title="Firewall" main="Active" color="green" />
+                </div>
+                <div className="containers">
+                  <div className="header">
+                    <p>Security Patch</p>
+                  </div>
+                  <div className="row2">
+                    <Info title="Status" main="Up to date" color="green" />
+                    <Info title="Last Update" main="12-12-2023" color="green" />
+                  </div>
+                </div>
+              </div>
+              <div className="containers">
+                <div className="header">
+                  <p> Honeypot </p>
+                </div>
+                <div>
+                  <Info title="Status" main="3/3" />
+                  <br />
+                  <Info title="Detection" main="💀5" />
+                </div>
+              </div>
+              <div className="containers">
+                <div className="header">
+                  <p> Alerts </p>
+                </div>
+                <div className="btn-row">
+                  <button className="active" onClick={(event) => handleClick(event)}>Security</button>
+                  <button onClick={(event) => handleClick(event)}>System Health</button>
+                  <button onClick={(event) => handleClick(event)}>Honeypot Detection</button>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <MainGrid title="CO2 Emissions" main="90 kg/MWh" />
+              <MainGrid title="Energy Efficiency" main="90%" />
+              <div className="containers">
+                <div className="heading">
+                  <p>Active Component Status</p>
+                </div>
+                <div className="row2" style={{margin:"0 3.5em" }}>
+                  <Info title="Nanogrids" main="3" />
+                  <Info title="Solar Plants" main="5" />
+                  <Info title="Wind Turbines" main="2" />
+                  <Info title="Battery Storage" main="4" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

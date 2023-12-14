@@ -1,14 +1,14 @@
 import React from "react";
 import "./MainGrid.css";
 
-export default function MainGrid({ title, main, perc, map, pow1, pow2, pow3 }) {
+export default function MainGrid({ title, main, perc, map, pow1, pow2, pow3, color }) {
   return (
     <>
       <div className="containers">
         <div className="heading">
           <p>{title}</p>
         </div>
-        <div className="main">{main}</div>
+        <div className="main" style={{color}}>{main}</div>
         <div className="pow3">{pow3}</div>
         <div className="perc">{perc}</div>
         <div className="map">{map}</div>
