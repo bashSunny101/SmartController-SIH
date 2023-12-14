@@ -14,6 +14,10 @@ nav {
   gap: 1em;
 }
 
+.graph{
+  margin-top: 1em;
+}
+
 .display {
   display: flex;
   gap: 3em;
