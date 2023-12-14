@@ -34,7 +34,7 @@ function Verify({ onVerificationSuccess }) {
       if (response.status === 200) {
         // Successful verification
         onVerificationSuccess();
-        // navigate("/dashboard");
+        navigate("/dashboard");
       } else {
         setLoginError("Invalid OTP");
       }
