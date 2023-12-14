@@ -51,13 +51,13 @@ function Dashboard() {
   return (
     <>
       <div className="flex-col ">
-          <div className="flex justify-between border-gray-700 border-b-2 p-2 sticky top-0">
+          <header className="flex justify-between border-gray-700 border-b-2 p-2 sticky z-2 ">
            <img src="src\assets\image (4).svg" alt="logo" className="h-10"/> 
            <div className=" border-2 rounded-xl text-white px-2 hover:bg-blue-600">Admin</div>
-          </div>
+          </header>
           <div>
-     <div className='flex flex-col sm:flex-row flex-wrap w-full  h-full pt-4 overflow-clip'>
-      <div className="left pl-16 left-0  text-center w-1/3 sticky">
+     <div className='flex justify-end sm:flex-row flex-wrap w-full  h-full pt-4'>
+      <div className="left pl-16 left-0  text-center w-1/3 fixed">
          <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
          <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
          <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
@@ -66,12 +66,12 @@ function Dashboard() {
          <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
          <div className='border rounded-md w-36 h-12 mb-2 my-6 pt-2 text-white'>dashboard</div>
       </div>
-      <div className=" w-8/12 overflow-y-auto">
+      <div className=" w-8/12 overflow-y-auto ">
         <div className="upper flex flex-wrap gap-8 text-center">
-        <div className=' border rounded-md w-44 h-20 mb-2 pt-6 text-white'>dashboard</div>
-         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>dashboard</div>
-         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>dashboard</div>
-         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>dashboard</div>
+        <div className=' border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Grid Status</div>
+         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Grid Status</div>
+         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Battery SoC</div>
+         <div className='border rounded-md w-44 h-20 mb-2 pt-6 text-white'>Geospatial Status</div>
         </div>
         <div className="mid flex flex-wrap  gap-8 mt-4 text-center">
         <div className=' border rounded-md ml-8 w-5/12 h-44 mb-2 pt-10 text-white'>
@@ -138,6 +138,7 @@ function Dashboard() {
          </div>
         </div>
         <div className="below-right w-1/2 flex flex-wrap  gap-4 mt-4 text-center">
+        <div className=' border rounded-md  w-[90%]  h-32 mb-2 pt-10 text-white'>dashboard</div>
         <div className=' border rounded-md  w-[90%]  h-32 mb-2 pt-10 text-white'>dashboard</div>
         
         </div>
