@@ -16,7 +16,8 @@ function Verify({ onVerificationSuccess }) {
     }
   }, [navigate, userEmail]);
 
-  const handleVerification = async () => {
+  const handleVerification = async (e) => {
+    e.preventDefault();
     try {
       console.log(otp);
       const otpString = otp.join(""); // Convert OTP array to a string
@@ -34,6 +35,7 @@ function Verify({ onVerificationSuccess }) {
       if (response.status === 200) {
         // Successful verification
         onVerificationSuccess();
+        console.log("here");
         navigate("/dashboard");
       } else {
         setLoginError("Invalid OTP");
@@ -71,7 +73,7 @@ function Verify({ onVerificationSuccess }) {
                     {otp.map((digit, index) => (
                       <div key={index} className="w-16 h-16 ">
                         <input
-                          className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-gray-400 focus:bg-gray-50 focus:ring-1 ring-blue-700"
+                          className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-gray-400 focus:bg-gray-900 focus:ring-1 ring-blue-700"
                           type="text"
                           name={`otp-${index}`}
                           value={digit}
