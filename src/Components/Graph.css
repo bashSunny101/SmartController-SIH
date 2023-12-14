@@ -1,0 +1,7 @@
+.side-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  margin-top: 1em;
+}
