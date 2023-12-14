@@ -23,3 +23,7 @@ nav {
   gap: 3em;
   margin: 2em 1em;
 }
+
+.nav{
+  margin: 0 1.5em !important;
+}
