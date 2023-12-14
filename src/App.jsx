@@ -45,8 +45,8 @@ function App() {
             </div>
           }
         />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Verify" element={<Verify />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/verify" element={<Verify />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
