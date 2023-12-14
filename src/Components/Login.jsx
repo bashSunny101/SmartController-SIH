@@ -1,23 +1,36 @@
 import React from 'react';
 import { useState } from 'react';
+import axios from 'axios';
+// import dotenv from 'dotenv';
+// dotenv.config();
+import { BACKEND_URI } from '../../env_variables';
 
 function Login({ onLoginSuccess }) {
-  const [username, setUsername] = useState('');
+  const [empID, setEmpID] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
 
-  const handleLogin = () => {
-    //login logic 
-    
-    const isSuccess = true; 
-
-    if (isSuccess) {
-      
-      onLoginSuccess();
-    } else {
-      setLoginError('Invalid credentials'); 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${BACKEND_URI}/user/signin`, {
+        empID: empID,
+        password: password,
+      });
+      if (response.status === 200) {
+        // Successful login
+        const userEmail = response.data.email;
+        localStorage.setItem('empID', empID);
+        localStorage.setItem('email', userEmail);
+        onLoginSuccess();
+      } else {
+        setLoginError('Invalid credentials');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setLoginError('Error during login. Please try again.');
     }
   };
+
 
   return (
     <>
@@ -39,11 +52,13 @@ function Login({ onLoginSuccess }) {
               </label>
               <input
                 className="flex h-8 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 text-gray-700"
-                placeholder="username"
+                placeholder="employee ID"
                 id="employeeId"
                 aria-describedby="employeeId-description"
                 aria-invalid="false"
-                name="username"
+                name="empID"
+                value={empID}
+                onChange={(e) => setEmpID(e.target.value)}
               />
             </div>
             <div className="space-y-2 text-left">
@@ -61,6 +76,8 @@ function Login({ onLoginSuccess }) {
                 aria-describedby="password-description"
                 aria-invalid="false"
                 name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button
