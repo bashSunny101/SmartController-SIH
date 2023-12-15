@@ -41,8 +41,8 @@ function Login({ onLoginSuccess }) {
             Get all energy solutions at one place...
           </p>
         </div>
-        <div className="p-6 pt-0">
-          <form className="space-y-8">
+        <div className=" pt-0 flex justify-center">
+          <form className="space-y-8 w-96">
             <div className="space-y-2 text-left">
               <label
                 className="text-sm text-gray-300 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -81,7 +81,7 @@ function Login({ onLoginSuccess }) {
               />
             </div>
             <button
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary bg-gray-50 text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 text-black"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary bg-gray-50 text-primary-foreground shadow hover:border-2 hover:text-white  hover:bg-gray-700 h-9 px-4 py-2 text-black"
               type="button"
               onClick={handleLogin}  
             >

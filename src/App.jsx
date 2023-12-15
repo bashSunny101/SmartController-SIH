@@ -24,8 +24,8 @@ function App() {
           element={
             <div className="flex-col p-8 text-center">
               <div className="flex flex-col items-center mb-11">
-                <img src="src\assets\image (4).svg" alt="logo" width={381} height={79} />
-                <div className="text-white font-semibold">Secure Grids, Smarter Connections</div>
+                <img src="src\assets\image (4).svg" alt="logo" width={250} height={79} />
+                <div className="text-white font-semibold font-light">Secure Grids, Smarter Connections</div>
               </div>
               <div className="flex responsive">
                 <div className=" p-4 stop flex-grow">
