@@ -93,7 +93,7 @@ button.active {
   margin: 0 3.5em;
 }
 
-@media only screen and (max-width: 912px){
+@media only screen and (max-width: 1140px){
   .display, .graph{
     flex-direction: column;
   }

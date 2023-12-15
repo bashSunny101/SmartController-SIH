@@ -7,11 +7,11 @@
 }
 
 .graph2{
-  width: 26rem;
+  width: calc(100% - 26vw);
   margin-top: 1em;
 }
 
-@media only screen and (max-width: 912px){
+@media only screen and (max-width: 1140px){
   .graph2{
     width: 100%;
   }
