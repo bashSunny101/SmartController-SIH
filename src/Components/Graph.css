@@ -6,6 +6,23 @@
   margin-top: 1em;
 }
 
-.graph{
+.graph2{
   width: 26rem;
+  margin-top: 1em;
+}
+
+@media only screen and (max-width: 912px){
+  .graph2{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .side-status{
+    flex-direction: row;
+  }
+
+  .sub{
+    flex-direction: column;
+  }
 }

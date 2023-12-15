@@ -15,12 +15,11 @@ const handleClick = (event) => {
   event.target.classList.add("active");
 };
 
-
 function Dashboard() {
   return (
     <>
       <div>
-        <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className=" back bg-white dark:bg-gray-900 fixed w-full z-20 top-0  start-0 border-b border-gray-200 dark:border-gray-600">
           <div className="flex flex-wrap items-center justify-between mx-auto p-4 nav">
             <a
               href="/"
@@ -41,11 +40,13 @@ function Dashboard() {
               icon={<AnalyticsIcon fontSize="large" />}
               prop="DashBoard"
             />
+            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="Grid Monitoring" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
           </div>
+          <div className="scroll">
           <div className="right-panel">
             <div className="right-grid">
               <MainGrid title="Grid Status" main="Connected to the main Grid" />
@@ -112,9 +113,18 @@ function Dashboard() {
                   <p> Alerts </p>
                 </div>
                 <div className="btn-row">
-                  <button className="active" onClick={(event) => handleClick(event)}>Security</button>
-                  <button onClick={(event) => handleClick(event)}>System Health</button>
-                  <button onClick={(event) => handleClick(event)}>Honeypot Detection</button>
+                  <button
+                    className="active"
+                    onClick={(event) => handleClick(event)}
+                  >
+                    Security
+                  </button>
+                  <button onClick={(event) => handleClick(event)}>
+                    System Health
+                  </button>
+                  <button onClick={(event) => handleClick(event)}>
+                    Honeypot Detection
+                  </button>
                 </div>
               </div>
             </div>
@@ -125,7 +135,7 @@ function Dashboard() {
                 <div className="heading">
                   <p>Active Component Status</p>
                 </div>
-                <div className="row2" style={{margin:"0 3.5em" }}>
+                <div className="row2 mar">
                   <Info title="Nanogrids" main="3" />
                   <Info title="Solar Plants" main="5" />
                   <Info title="Wind Turbines" main="2" />
@@ -133,6 +143,7 @@ function Dashboard() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

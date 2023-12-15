@@ -2,6 +2,10 @@ nav {
   position: relative !important;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
+
 .admin{
   font-family: "Courier New", Courier, monospace;
   border: 1px solid white;
@@ -9,10 +13,22 @@ nav {
   padding: 0 1em;
 }
 
+.scroll::-webkit-scrollbar{
+  display: none;
+}
+
+.scroll{
+  overflow: scroll;
+}
+
 .left-panel {
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+
+.right-panel{
+  height: 80vh;
 }
 
 .right-grid,
@@ -58,6 +74,10 @@ button.active {
   margin: 0 1.5em !important;
 }
 
+.back{
+  width: 100% !important;
+}
+
 .first{
   display: flex;
   flex-direction: column;
@@ -67,4 +87,38 @@ button.active {
 .header{
   text-align: center;
   margin-bottom: 1em;
+}
+
+.mar{
+  margin: 0 3.5em;
+}
+
+@media only screen and (max-width: 912px){
+  .display, .graph{
+    flex-direction: column;
+  }
+
+  .left-panel, .right-grid, .row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .right-grid, .row, .row-2, .left-panel, .row2, .graph{
+    display: flex;
+    flex-direction: column;
+  }
+  .mar{
+    margin: 0;
+  }
+
+  .vertical{
+    rotate: 90deg;
+  }
+
+  .btn-row{
+    gap: 1em;
+    margin: 0 0.5em;
+  }
 }

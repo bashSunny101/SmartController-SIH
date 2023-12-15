@@ -45,10 +45,10 @@ const LineChartOptions = {
             <MainGrid title={title2} pow3={pow32} />
             <MainGrid title={title3} pow3={pow33} />
           </div>
-          <div className="graph">
-          <Chart
+          <div className="graph2">
+                <Chart
                     width="100%"
-                    height={'300px'}
+                    height={'100%'}
                     chartType="LineChart"
                     loader={<div>Loading Chart</div>}
                     data={LineData}
