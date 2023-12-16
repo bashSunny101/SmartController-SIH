@@ -17,7 +17,7 @@ const Dash = () => {
     <>
       <div className="right-panel">
         <div className="right-grid">
-          <MainGrid title="Grid Status" main="Connected to the main Grid" />
+          <MainGrid title="Utility Grid Status" main="Connected to the main Grid" />
           <MainGrid
             title="Grid Status"
             pow1="45 KW"

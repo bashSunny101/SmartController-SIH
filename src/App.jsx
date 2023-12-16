@@ -4,7 +4,6 @@ import Login from './Components/Login';
 import Verify from './Components/Verify';
 import Dashboard from './Components/Dashboard';
 import ComponentMonitoring from './Components/ComponentMonitoring';
-import DashboardMain from './Components/DashboardMain';
 import ComMonDetails from "./Components/ComMonDetails";
 
 
@@ -53,7 +52,6 @@ function App() {
         <Route path="/verify" element={<Verify />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/ComponentMonitoring" element={<ComponentMonitoring />} />
-        <Route path="/DashboardMain" element={<DashboardMain />} />
         <Route path="/ComMonDetails" element={<ComMonDetails />} />
 
       </Routes>

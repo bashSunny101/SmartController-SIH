@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@media screen and (max-width: 1020px) {
+@media screen and () {
     .responsive{
         justify-content: center;
         align-self: center;

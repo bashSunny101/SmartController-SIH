@@ -64,9 +64,15 @@ function Dashboard() {
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Grid Monitoring"
               />
-            </button>
+            </button >
+            <button onClick={() => handleToggleClick("Component Monitoring")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Component Monitoring"
+              />
+            </button >
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} 
-            prop="Component Monitoring" />
+            prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
