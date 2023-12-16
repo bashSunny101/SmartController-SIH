@@ -15,7 +15,7 @@
   font-size: 1.5rem;
 }
 
-.vertical {
+.verti {
   width: 2px;
   background-color: white;
 }
@@ -35,4 +35,15 @@
   border: 1px solid white;
   border-radius: 0.5rem;
   padding: 1em;
+}
+
+@media only screen and (max-width: 600px){
+  :root{
+    font-size: 8px;
+  }
+
+  .sub{
+    align-items: center;
+    gap: 0;
+  }
 }

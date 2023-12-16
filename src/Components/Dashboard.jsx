@@ -1,26 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PanelGrid from "./PanelGrid";
 import "./DashBoard.css";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-
-
-
-const handleClick = (event) => {
-  const activeButton = document.querySelector(".active");
-  if (activeButton) {
-    activeButton.classList.remove("active");
-  }
-  event.target.classList.add("active");
-  
-};
-
+import Timeline from "./Timeline";
+import Dash from "./Dash";
+import { useState } from "react";
 
 function Dashboard() {
+  let compType = localStorage.getItem("prp");
+  const [selectedComponent, setSelectedComponent] = useState(compType);
+
+  useEffect(() => {
+    if (selectedComponent) {
+      localStorage.setItem("prp", selectedComponent);
+    }
+  }, [selectedComponent]);
+
+  const handleToggleClick = (component) => {
+    setSelectedComponent(component);
+  };
+  const renderComponent = () => {
+    switch (selectedComponent) {
+      case "Dash":
+        return <Dash />;
+      case "Timeline":
+        return <Timeline />;
+      default:
+        return null;
+    }
+  };
   return (
         
     <>
       <div>
-        <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className=" back bg-white dark:bg-gray-900 w-full z-20 top-0 sticky start-0 border-b border-gray-200 dark:border-gray-600">
           <div className="flex flex-wrap items-center justify-between mx-auto p-4 nav">
             <a
               href="/"
@@ -37,21 +50,24 @@ function Dashboard() {
         </nav>
         <div className="display">
           <div className="left-panel">
-            
-            <PanelGrid
-              icon={<AnalyticsIcon fontSize="large" />}
-              prop="DashboardMain"
-              
-            />
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="GridMonitoring" />
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="ComponentMonitoring" />
+            <button onClick={() => handleToggleClick("Dash")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="DashBoard"
+              />
+            </button>
+            <button onClick={() => handleToggleClick("Timeline")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Grid Monitoring"
+              />
+            </button>
+            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
+            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
           </div>
-          <div className="right-panel">
-            
-          </div>
-          
+          <div className="scroll">{renderComponent()}</div>
         </div>
       </div>
     </>

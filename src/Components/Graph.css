@@ -6,6 +6,24 @@
   margin-top: 1em;
 }
 
-.graph{
-  width: 26rem;
+.graph2{
+  width: calc(100% - 26vw);
+  margin-top: 1em;
+}
+
+@media only screen and (max-width: 1140px){
+  .graph2{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .side-status{
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .sub{
+    flex-direction: column;
+  }
 }
