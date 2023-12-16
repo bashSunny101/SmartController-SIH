@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './Components/Login';
 import Verify from './Components/Verify';
 import Dashboard from './Components/Dashboard';
+import ComponentMonitoring from './Components/ComponentMonitoring';
+import DashboardMain from './Components/DashboardMain';
+import ComMonDetails from "./Components/ComMonDetails";
+
 
 function App() {
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
@@ -25,7 +29,7 @@ function App() {
             <div className="flex-col p-8 text-center">
               <div className="flex flex-col items-center mb-11">
                 <img src="src\assets\image (4).svg" alt="logo" width={250} height={79} />
-                <div className="text-white font-semibold font-light">Secure Grids, Smarter Connections</div>
+                <div className="text-white  font-light">Secure Grids, Smarter Connections</div>
               </div>
               <div className="flex responsive">
                 <div className=" p-4 stop flex-grow">
@@ -48,6 +52,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/verify" element={<Verify />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/ComponentMonitoring" element={<ComponentMonitoring />} />
+        <Route path="/DashboardMain" element={<DashboardMain />} />
+        <Route path="/ComMonDetails" element={<ComMonDetails />} />
+
       </Routes>
     </Router>
   );
