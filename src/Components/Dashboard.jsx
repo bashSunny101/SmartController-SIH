@@ -10,7 +10,7 @@ import PatchManagement from "./PatchManagement";
 import HardwareManagement from "./HardwareManagement";
 
 function Dashboard() {
-  let compType = localStorage.getItem("prp");
+  let compType = localStorage.getItem("prp")||"Dash";
   const [selectedComponent, setSelectedComponent] = useState(compType);
 
   useEffect(() => {

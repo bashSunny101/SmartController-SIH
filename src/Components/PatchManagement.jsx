@@ -6,16 +6,16 @@ function PatchManagement() {
       <div className="border-gray-800 flex-col justify-center items-center h-screen ">
         <div>
           <div className="flex-col container">
-            <div className="flex justify-between text-2xl">
-              <div className="border-2 p-2 rounded-md flex-col  ">
+            <div className="flex justify-start  text-2xl ">
+              <div className="border-2 p-2 rounded-md flex-col bg-slate-800  ">
                 <p>Hardware Devices</p>
                 <p className="text-center text-2xl text-blue-600">23</p>
               </div>
-              <div className="border-2 p-2 rounded-md flex-col">
+              <div className="border-2 p-2 rounded-md flex-col bg-slate-800">
                 <p>Patched Devices</p>
                 <p className="text-center text-2xl text-blue-600">12</p>
               </div>
-              <div className="border-2 p-2 rounded-md flex-col">
+              <div className="border-2 p-2 rounded-md flex-col bg-slate-800">
                 <p>Pending Patches</p>
                 <p className="text-center text-2xl text-blue-600">4</p>
               </div>
@@ -110,6 +110,7 @@ function PatchManagement() {
             </div>
           </div>
         </div>
+        {/* System Operator */}
         <div className=" text-gray-400 border-2 flex-col w-full mx-auto my-8 p-6 rounded-lg flex justify-center">
           <h3 className="font-bold text-white">Add New Patch</h3>
           <div className="flex  gap-4">
@@ -136,6 +137,7 @@ function PatchManagement() {
           </div>
           
         </div>
+        {/* Maintenance Technician */}
         <div className=" bg-black p-10">
       <div className="overflow-hidden overflow-x-auto border border-gray-700 rounded">
         <table className="min-w-full text-white ">

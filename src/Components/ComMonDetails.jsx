@@ -58,10 +58,10 @@ const data = [
 
 function ComMonDetails() {
   return (
-    <div className="flex flex-col items-center justify-center h-full">
+    <div className="flex flex-col items-center justify-center  ">
       {/* First Container */}
       <div className="container m-2">
-        <div className="text-2xl">
+        <div className="text-3xl mb-4 font-bold ">
           Power Generation Components
         </div>
         <div className="flex justify-between text-2xl">
@@ -71,7 +71,7 @@ function ComMonDetails() {
         </div>
         <div className="container">
           <LineChart
-            width={500}
+            width={1400}
             height={500}
             data={data}
             margin={{
@@ -90,7 +90,7 @@ function ComMonDetails() {
           </LineChart>
           <table className="min-w-full">
             <thead>
-              <tr>
+              <tr className="text-blue-500">
                 <th className="border p-3">Source Type</th>
                 <th className="border p-3">Energy Generated</th>
                 <th className="border p-3">Active Component Sites</th>
@@ -120,13 +120,13 @@ function ComMonDetails() {
       </div>
 
       {/* Second Container */}
-      <div className="container m-2">
-        <div className="text-2xl">
+      <div className="container mt-6 ">
+        <div className="text-3xl mb-4 font-bold ">
             Component List
         </div>
         <table className="min-w-full">
             <thead>
-              <tr>
+              <tr className="text-blue-500">
                 <th className="border p-3">Component ID</th>
                 <th className="border p-3">Name</th>
                 <th className="border p-3">Type</th>

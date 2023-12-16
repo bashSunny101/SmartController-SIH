@@ -7,7 +7,7 @@ export default function PanelGrid({icon, prop}){
     
     return(
         <>
-            <div className="container" >
+            <div className="container bg-gray-950" >
                 <a href="">
                     <div className='flex'>
                         <div>

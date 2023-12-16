@@ -25,7 +25,7 @@ const Dash = () => {
             pow2="45 KW"
           />
           <MainGrid title="Battery SoC" perc="75%" />
-          <MainGrid title="Grid Status" map={<MapIcon fontSize="large" />} />
+          <MainGrid title="Grid Status" map={<MapIcon fontSize="large"  />} />
         </div>
         <div className="graph">
           <Graph
