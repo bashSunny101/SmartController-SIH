@@ -51,7 +51,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/verify" element={<Verify />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/ComponentMonitoring" element={<ComponentMonitoring />} />
+        {/* <Route path="/ComponentMonitoring" element={<ComponentMonitoring />} /> */}
         <Route path="/ComMonDetails" element={<ComMonDetails />} />
 
       </Routes>

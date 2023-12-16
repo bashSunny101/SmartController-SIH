@@ -11,9 +11,9 @@ function ComponentMonitoring() {
 
   return (
     <>
-      <div className="">
-        <div className="border-gray-800 flex-col justify-center items-center h-screen">
-          <div className="container">
+      <div>
+        <div className="border-gray-800 flex-col justify-center items-center h-screen ">
+          <div className="container ">
             <div className="flex justify-between m-2 text-2xl">
               Power Generation Components
               <button

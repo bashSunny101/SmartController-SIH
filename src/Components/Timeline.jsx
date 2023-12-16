@@ -37,6 +37,13 @@ const data = [
       { cardTitle: "Solar Plant B" },
     ],
   },
+  {
+    title: "Battery Saver",
+    items: [
+      { cardTitle: "Solar Plant A" },
+      { cardTitle: "Solar Plant B" },
+    ],
+  },
 ];
 
 function Timeline() {

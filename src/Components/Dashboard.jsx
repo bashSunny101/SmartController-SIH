@@ -6,6 +6,8 @@ import Timeline from "./Timeline";
 import Dash from "./Dash";
 import { useState } from "react";
 import ComponentMonitoring from "./ComponentMonitoring";
+import PatchManagement from "./PatchManagement";
+import HardwareManagement from "./HardwareManagement";
 
 function Dashboard() {
   let compType = localStorage.getItem("prp");
@@ -28,12 +30,15 @@ function Dashboard() {
         return <Timeline />;
       case "Component Monitoring":
         return <ComponentMonitoring />;
+      case "Hardware Management":
+        return <HardwareManagement />;
+      case "Patch Management":
+        return <PatchManagement />;
       default:
         return null;
     }
   };
   return (
-        
     <>
       <div>
         <nav className=" back bg-white dark:bg-gray-900 w-full z-20 top-0 sticky start-0 border-b border-gray-200 dark:border-gray-600">
@@ -64,16 +69,25 @@ function Dashboard() {
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Grid Monitoring"
               />
-            </button >
+            </button>
             <button onClick={() => handleToggleClick("Component Monitoring")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Component Monitoring"
               />
-            </button >
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} 
-            prop="" />
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
+            </button>
+            <button onClick={() => handleToggleClick("Hardware Management")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Hardware Management"
+              />
+            </button>
+            <button onClick={() => handleToggleClick("Patch Management")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Patch Management"
+              />
+            </button>
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
           </div>

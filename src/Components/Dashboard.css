@@ -1,5 +1,5 @@
 nav {
-  position: relative !important;
+  position: sticky !important;
 }
 
 body::-webkit-scrollbar{
