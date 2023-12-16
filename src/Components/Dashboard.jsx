@@ -5,6 +5,7 @@ import AnalyticsIcon from "@mui/icons-material/Analytics";
 import Timeline from "./Timeline";
 import Dash from "./Dash";
 import { useState } from "react";
+import ComponentMonitoring from "./ComponentMonitoring";
 
 function Dashboard() {
   let compType = localStorage.getItem("prp");
@@ -25,6 +26,8 @@ function Dashboard() {
         return <Dash />;
       case "Timeline":
         return <Timeline />;
+      case "Component Monitoring":
+        return <ComponentMonitoring />;
       default:
         return null;
     }
@@ -62,7 +65,8 @@ function Dashboard() {
                 prop="Grid Monitoring"
               />
             </button>
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
+            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} 
+            prop="Component Monitoring" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
