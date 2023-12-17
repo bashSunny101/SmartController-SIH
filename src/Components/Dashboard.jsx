@@ -8,9 +8,10 @@ import { useState } from "react";
 import ComponentMonitoring from "./ComponentMonitoring";
 import PatchManagement from "./PatchManagement";
 import HardwareManagement from "./HardwareManagement";
+import SecurityCenter from "./SecurityCenter";
 
 function Dashboard() {
-  let compType = localStorage.getItem("prp")||"Dash";
+  let compType = localStorage.getItem("prp") || "Dash";
   const [selectedComponent, setSelectedComponent] = useState(compType);
 
   useEffect(() => {
@@ -34,6 +35,8 @@ function Dashboard() {
         return <HardwareManagement />;
       case "Patch Management":
         return <PatchManagement />;
+      case "Security Center":
+        return <SecurityCenter />;
       default:
         return null;
     }
@@ -88,10 +91,15 @@ function Dashboard() {
                 prop="Patch Management"
               />
             </button>
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
+            <button onClick={() => handleToggleClick("Security Center")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Security Center"
+              />
+            </button>
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
           </div>
-          <div className="scroll">{renderComponent()}</div>
+          <div>{renderComponent()}</div>
         </div>
       </div>
     </>
