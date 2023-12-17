@@ -6,6 +6,7 @@ import Timeline from "./Timeline";
 import Dash from "./Dash";
 import { useState } from "react";
 import ComponentMonitoring from "./ComponentMonitoring";
+import GridMonitoring from "./GridMonitoring";
 
 function Dashboard() {
   let compType = localStorage.getItem("prp");
@@ -26,6 +27,8 @@ function Dashboard() {
         return <Dash />;
       case "Timeline":
         return <Timeline />;
+      case "GridMonitoring":
+        return <GridMonitoring />;
       case "Component Monitoring":
         return <ComponentMonitoring />;
       default:
@@ -33,7 +36,6 @@ function Dashboard() {
     }
   };
   return (
-        
     <>
       <div>
         <nav className=" back bg-white dark:bg-gray-900 w-full z-20 top-0 sticky start-0 border-b border-gray-200 dark:border-gray-600">
@@ -62,12 +64,21 @@ function Dashboard() {
             <button onClick={() => handleToggleClick("Timeline")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
+                prop="Utility Grid"
+              />
+            </button>
+            <button onClick={() => handleToggleClick("GridMonitoring")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
                 prop="Grid Monitoring"
               />
             </button>
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} 
-            prop="Component Monitoring" />
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
+            <a href="/ComponentMonitoring">
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Component Monitoring"
+              />
+            </a>
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
             <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
           </div>

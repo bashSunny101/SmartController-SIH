@@ -5,69 +5,68 @@ import svg from "../assets/logo.ico";
 import Info from "./Info";
 
 const data = [
-  {
-    title: "Solar Plant",
-    items: [
-      { cardTitle: "Solar Plant A" },
-      { cardTitle: "Solar Plant B" },
-    ],
-  },
-  {
-    title: "Wind Plant",
-    items: [
-      { cardTitle: "Solar Plant A",
-      cardDetailedText: "7 kWh",
-      },
-      { cardTitle: "Solar Plant B" },
-      { cardTitle: "Solar Plant B" },
-    ],
-    
-  },
-  {
-    title: "Hydroelectric Power",
-    items: [
-      { cardTitle: "Solar Plant A",},
-      { cardTitle: "Solar Plant B" },
-    ],
-  },
-  {
-    title: "Battery Saver",
-    items: [
-      { cardTitle: "Solar Plant A" },
-      { cardTitle: "Solar Plant B" },
-    ],
-  },
+  { title: "Solar Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
 ];
+
+const value = 0;
+const value1 = 10;
 
 function Timeline() {
   return (
     <div className="vert">
-      <div className="containers" style={{textAlign:"center", display:"flex", gap:"1em", justifyContent:"space-evenly"}}>
-        <img src={svg} alt="image1" />
-        <Info title="Utility Grid" main="15kWh"/>
-      </div>
-      <Chrono 
-        scrollable={{ scrollbar: true }}
-        items={data}
-        mode="VERTICAL_ALTERNATING"
-        slideShow
-        slideItemDuration={1500}
-        slideShowType="reveal"
-        classNames={{
-          card: "my-card",
-          cardMedia: "my-card-media",
-          cardSubTitle: "my-card-subtitle",
-          cardText: "my-card-text",
-          cardTitle: "my-card-title",
-          controls: "my-controls",
-          title: "my-title",
+      <div
+        className="containers2 on"
+        style={{
+          textAlign: "center",
+          display: "flex",
+          gap: "1em",
+          justifyContent: "space-evenly",
         }}
       >
-        <div className="chrono-icons">
-          <img src={svg} alt="image1" />
-          <img src="image2.svg" alt="image2" />
-        </div>
-      </Chrono>
+        <img src={svg} alt="image1" />
+        <Info title="Utility Grid" main="15kWh" />
+      </div>
+      <div style={{ width: "40rem", height: "70vh" }}>
+        <Chrono mode="VERTICAL_ALTERNATING" items={data}>
+          <div>
+            <div className="left-panel">
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value1 > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value1} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+            </div>
+          </div>
+          <div>helo</div>
+          <div>helo</div>
+          <div>helo</div>
+          <div>helo</div>
+          <div>helo</div>
+        </Chrono>
+      </div>
     </div>
   );
 }
