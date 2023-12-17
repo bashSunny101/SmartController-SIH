@@ -31,19 +31,24 @@ function App() {
                 <div className="text-white  font-light">Secure Grids, Smarter Connections</div>
               </div>
               <div className="flex responsive">
-                <div className=" p-4 stop flex-grow">
-                  <img src="src\assets\My Video.gif" alt="microgrid animation" />
-                </div>
-                <div className="inline-block h-auto w-1 rounded-xl self-stretch bg-gray-500 opacity-100 dark:opacity-50 line"></div>
-                <div className="ml-20">
-                  {!isLoginSuccessful ? (
-                    <Login onLoginSuccess={handleLoginSuccess} />
-                  ) : !isVerified ? (
-                    <Verify onVerificationSuccess={handleVerificationSuccess} />
-                  ) : (
-                    <Navigate to="/dashboard" />
-                  )}
-                </div>
+              <div className="flex justify-center items-center space-x-4"> {/* Flex container with centered items and space between them */}
+  <div className="p-4 flex-grow"> {/* First item */}
+    <img src="src\assets\My Video.gif" alt="microgrid animation" />
+  </div>
+
+  <div className="inline-block h-auto w-1 rounded-xl self-stretch bg-gray-500 opacity-100 dark:opacity-50"></div> {/* Divider */}
+
+  <div className="flex-grow"> {/* Second item */}
+    {!isLoginSuccessful ? (
+      <Login onLoginSuccess={handleLoginSuccess} />
+    ) : !isVerified ? (
+      <Verify onVerificationSuccess={handleVerificationSuccess} />
+    ) : (
+      <Navigate to="/dashboard" />
+    )}
+  </div>
+</div>
+
               </div>
             </div>
           }
@@ -51,7 +56,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/verify" element={<Verify />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/ComponentMonitoring" element={<ComponentMonitoring />} /> */}
         <Route path="/ComMonDetails" element={<ComMonDetails />} />
 
       </Routes>
