@@ -1,15 +1,8 @@
-// src/components/AnimatedTimeline.jsx
-
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { Chrono } from "react-chrono";
+import "./Timeline.css";
+import svg from "../assets/logo.ico";
 import Info from "./Info";
-
-const nodeStyles = {
-  border: '1px solid #777',
-  padding: '10px',
-  borderRadius: '3px',
-  background: '#9CA8B3',
-  color: '#FFF',
-};
 
 const data = [
   { title: "Solar Plant" },
@@ -30,14 +23,8 @@ function Timeline() {
     <div className="vert">
       <div
         className="containers2 on"
-        style={{
-          textAlign: "center",
-          display: "flex",
-          gap: "1em",
-          justifyContent: "space-evenly",
-        }}
       >
-        <img src='' alt="image1" />
+        <img src={svg} alt="image1" />
         <Info title="Utility Grid" main="15kWh" />
       </div>
       <div style={{ width: "40rem", height: "70vh" }}>

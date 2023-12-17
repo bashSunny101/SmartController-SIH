@@ -67,6 +67,7 @@ button.active {
 }
 
 .display {
+  font-family: "Courier New", Courier, monospace;
   display: flex;
   gap: 3em;
   margin: 2em 1em;

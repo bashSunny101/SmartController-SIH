@@ -4,7 +4,7 @@ const Info = ({ title, main, color }) => {
   return (
     <>
       <div>
-        <div className="heading text-gray-400">
+        <div className="heading">
           <p>{title}</p>
         </div>
         <div className="main" style={{color}}>{main}</div>
