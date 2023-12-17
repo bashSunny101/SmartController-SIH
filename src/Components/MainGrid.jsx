@@ -6,10 +6,10 @@ export default function MainGrid({ title, main, perc, map, pow1, pow2, pow3, col
     <>
       <div className="containers">
         <div className="heading">
-          <p className="text-2xl text-gray-400">{title}</p>
+          <p className=" text-gray-400">{title}</p>
         </div>
-        <div className="main font" style={{color}}>{main}</div>
-        <div className="pow3 text-sm">{pow3}</div>
+        <div className="main" style={{color}}>{main}</div>
+        <div className="pow3">{pow3}</div>
         <div className="perc">{perc}</div>
         <div className="map">{map}</div>
         {pow1 ? (
