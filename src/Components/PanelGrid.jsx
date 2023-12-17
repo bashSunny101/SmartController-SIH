@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 import "./PanelGrid.css";
-
 
 export default function PanelGrid({icon, prop}){
 

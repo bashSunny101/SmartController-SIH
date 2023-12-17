@@ -9,6 +9,7 @@ import ComponentMonitoring from "./ComponentMonitoring";
 import PatchManagement from "./PatchManagement";
 import HardwareManagement from "./HardwareManagement";
 import SecurityCenter from "./SecurityCenter";
+import GridMonitoring from "./GridMonitoring";
 
 function Dashboard() {
   let compType = localStorage.getItem("prp") || "Dash";
@@ -29,6 +30,8 @@ function Dashboard() {
         return <Dash />;
       case "Timeline":
         return <Timeline />;
+      case "GridMonitoring":
+        return <GridMonitoring />;
       case "Component Monitoring":
         return <ComponentMonitoring />;
       case "Hardware Management":
@@ -68,6 +71,12 @@ function Dashboard() {
               />
             </button>
             <button onClick={() => handleToggleClick("Timeline")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Utility Grid"
+              />
+            </button>
+            <button onClick={() => handleToggleClick("GridMonitoring")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Grid Monitoring"

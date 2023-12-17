@@ -11,48 +11,69 @@ const nodeStyles = {
   color: '#FFF',
 };
 
-const Timeline = () => {
-  const [elements, setElements] = useState([]);
+const data = [
+  { title: "Solar Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+  { title: "Water Plant" },
+];
 
-  useEffect(() => {
-    // Fetch data from backend
-    const fetchData = async () => {
-      try {
-        const response = await fetch('');
-        const data = await response.json();
+const value = 0;
+const value1 = 10;
 
-        // Format data for React Flow
-        const nodes = data.map((item, index) => ({
-          id: String(index),
-          data: { label: item.title },
-          position: { x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight },
-          style: nodeStyles,
-        }));
-
-        // Create edges between nodes to form a timeline
-        const edges = nodes.map((node, index, arr) => {
-          if (index < arr.length - 1) {
-            return addEdge({ id: `e${node.id}-${arr[index + 1].id}`, source: node.id, target: arr[index + 1].id }, []);
-          }
-          return null;
-        }).filter(Boolean);
-
-        setElements([...nodes, ...edges]);
-      } catch (error) {
-        console.error('Error fetching timeline data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+function Timeline() {
   return (
-    <div style={{ height: 500 }}>
-      <ReactFlow elements={elements}>
-        <MiniMap />
-        <Controls />
-        <Background />
-      </ReactFlow>
+    <div className="vert">
+      <div
+        className="containers2 on"
+        style={{
+          textAlign: "center",
+          display: "flex",
+          gap: "1em",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <img src={svg} alt="image1" />
+        <Info title="Utility Grid" main="15kWh" />
+      </div>
+      <div style={{ width: "40rem", height: "70vh" }}>
+        <Chrono mode="VERTICAL_ALTERNATING" items={data}>
+          <div>
+            <div className="left-panel">
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value1 > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value1} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+              <div className={`containers2 ${value > 0 ? "on" : ""}`}>
+                <Info title="Utility Grid" main={`${value} kWh`} />
+              </div>
+            </div>
+          </div>
+          <div>helo</div>
+          <div>helo</div>
+          <div>helo</div>
+          <div>helo</div>
+          <div>helo</div>
+        </Chrono>
+      </div>
     </div>
   );
 };
