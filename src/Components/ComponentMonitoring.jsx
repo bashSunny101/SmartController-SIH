@@ -17,7 +17,7 @@ function ComponentMonitoring() {
 
   return (
     <>
-        <div className="bg-black text-white font-mono">
+        <div className="bg-black text-white font-mono ">
       <div className="flex justify-between items-center p-4">
         <h1 className="text-xl">Power Generation Components</h1>
         <div className="bg-green-500 rounded-full h-3 w-3"></div>

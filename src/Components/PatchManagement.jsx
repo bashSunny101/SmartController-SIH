@@ -3,7 +3,7 @@ import React from "react";
 function PatchManagement() {
   return (
     <>
-      <div className=" border-gray-800 flex-col justify-center items-center h-screen w-screen ">
+      <div className=" border-gray-800 flex-col justify-center items-center h-screen  ">
         <div >
           <div className="flex-col container  bg-gray-800">
             <div className="flex justify-start  text-2xl ">
@@ -111,7 +111,7 @@ function PatchManagement() {
           </div>
         </div>
         {/* System Operator */}
-        <div className=" text-gray-400  border-2 flex-col  mx-auto my-8 p-6 rounded-lg flex justify-center">
+        <div className=" text-gray-400  border-2 flex-col mx-auto my-8 p-6 rounded-lg flex justify-center">
           <h3 className="font-bold text-white">Add New Patch</h3>
           <div className="flex  gap-4">
             <input

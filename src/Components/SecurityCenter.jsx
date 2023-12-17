@@ -127,7 +127,7 @@ function SecurityCenter() {
       </div>
     </div> 
 
-    <div className=''>
+    <div >
     <div className="bg-gray-800 p-4 text-white mt-5">
       <h2 className="text-2xl font-bold mb-4 text-gray-500">Access Logs</h2>
       <div className="overflow-x-auto mt-3">
