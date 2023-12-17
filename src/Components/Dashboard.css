@@ -7,7 +7,7 @@ body::-webkit-scrollbar{
 }
 
 .admin{
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
   border: 1px solid white;
   border-radius: 0.5rem;
   padding: 0 1em;
@@ -67,7 +67,7 @@ button.active {
 }
 
 .display {
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
   display: flex;
   gap: 3em;
   margin: 2em 1em;
