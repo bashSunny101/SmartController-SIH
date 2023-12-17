@@ -19,7 +19,7 @@ const alerts = [
 function SecurityCenter() {
   return (
     <>
-    <div className='container w-screen text-xl h-full '>
+    <div className='container  text-xl'>
     <div className=" text-white p-4 rounded-lg flex justify-between items-center">
       <div className="flex flex-col items-center">
         <span className="text-2xl font-medium">Security Alerts</span>
@@ -127,7 +127,7 @@ function SecurityCenter() {
       </div>
     </div> 
 
-    <div >
+    <div className=''>
     <div className="bg-gray-800 p-4 text-white mt-5">
       <h2 className="text-2xl font-bold mb-4 text-gray-500">Access Logs</h2>
       <div className="overflow-x-auto mt-3">
