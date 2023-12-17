@@ -28,6 +28,8 @@ function Dashboard() {
     switch (selectedComponent) {
       case "Dash":
         return <Dash />;
+      case "Timeline":
+        return <Timeline />;
       case "GridMonitoring":
         return <GridMonitoring />;
       case "Component Monitoring":
@@ -68,6 +70,12 @@ function Dashboard() {
                 prop="DashBoard"
               />
             </button>
+            <button onClick={() => handleToggleClick("Timeline")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Grid Utility"
+              />
+            </button>
             <button onClick={() => handleToggleClick("GridMonitoring")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
@@ -98,9 +106,7 @@ function Dashboard() {
                 prop="Security Center"
               />
             </button>
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
           </div>
-          
 
           <div className="scroll">{renderComponent()}</div>
         </div>
