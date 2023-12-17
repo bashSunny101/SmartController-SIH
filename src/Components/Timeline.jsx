@@ -1,7 +1,7 @@
 // src/components/AnimatedTimeline.jsx
 
 import React, { useState, useEffect } from 'react';
-import ReactFlow, { addEdge, MiniMap, Controls, Background } from 'react-flow-renderer';
+import Info from "./Info";
 
 const nodeStyles = {
   border: '1px solid #777',
@@ -37,7 +37,7 @@ function Timeline() {
           justifyContent: "space-evenly",
         }}
       >
-        <img src={svg} alt="image1" />
+        <img src='' alt="image1" />
         <Info title="Utility Grid" main="15kWh" />
       </div>
       <div style={{ width: "40rem", height: "70vh" }}>
