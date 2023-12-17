@@ -22,23 +22,23 @@ function SecurityCenter() {
     <div className='container  text-xl'>
     <div className=" text-white p-4 rounded-lg flex justify-between items-center">
       <div className="flex flex-col items-center">
-        <span className="text-2xl font-medium">Security Alerts</span>
+        <span className="text-xl font-medium">Security Alerts</span>
         <span className="text-xl font-bold">52</span>
       </div>
       <div className="flex flex-col items-center">
-        <span className="text-2xl font-medium">Blocked Users</span>
+        <span className="text-xl font-medium">Blocked Users</span>
         <span className="text-xl font-bold">52</span>
       </div>
       <div className="flex flex-col items-center">
-        <span className="text-2xl font-medium">Surveillance Users</span>
+        <span className="text-xl font-medium">Surveillance Users</span>
         <span className="text-xl font-bold">65</span>
       </div>
       <div className="flex flex-col items-center">
-        <span className="text-2xl font-medium">Honeypot Alerts</span>
+        <span className="text-xl font-medium">Honeypot Alerts</span>
         <span className="text-xl font-bold">32</span>
       </div>
       <div className="flex items-center">
-        <span className="text-3xl font-medium text-green-400">●</span>
+        <span className="text-x2l font-medium text-green-400">●</span>
         <span className="text-xl font-medium ml-2">Last 24 Hours</span>
       </div>
     </div>
@@ -46,7 +46,7 @@ function SecurityCenter() {
 
     <div className="bg-gray-800 text-white p-4 rounded-lg mt-4">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold  text-gray-500">Security Alerts</h1>
+        <h1 className="text-xl font-bold  text-gray-500">Security Alerts</h1>
         <div className="relative">
           <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500">
             <option>Last 24 Hours</option>
