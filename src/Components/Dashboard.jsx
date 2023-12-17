@@ -53,7 +53,7 @@ function Dashboard() {
             >
               <img
                 src="src\assets\image (4).svg"
-                className="h-8"
+                className="h-10"
                 alt="Vidyut Logo"
               />
             </a>
