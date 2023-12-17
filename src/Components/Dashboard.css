@@ -2,7 +2,7 @@ nav {
   position: sticky !important;
 }
 
-body::-webkit-scrollbar{
+*::-webkit-scrollbar{
   display: none;
 }
 
@@ -25,6 +25,9 @@ body::-webkit-scrollbar{
   display: flex;
   flex-direction: column;
   gap: 1em;
+  position: relative; 
+  height: 80vh; 
+  overflow-y: scroll;
 }
 
 .right-panel{
