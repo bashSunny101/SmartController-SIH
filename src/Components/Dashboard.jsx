@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PanelGrid from "./PanelGrid";
-import "./DashBoard.css";
+import "./Dashboard.css";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import Timeline from "./Timeline";
 import Dash from "./Dash";
