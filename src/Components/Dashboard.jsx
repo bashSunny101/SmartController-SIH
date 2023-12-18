@@ -66,13 +66,13 @@ function Dashboard() {
           <div className="left-panel">
             <button onClick={() => handleToggleClick("Dash")}>
               <PanelGrid
-                icon={<AnalyticsIcon fontSize="large" />}
+                icon={<AnalyticsIcon fontSize="small" />}
                 prop="DashBoard"
               />
             </button>
             <button onClick={() => handleToggleClick("Timeline")}>
               <PanelGrid
-                icon={<AnalyticsIcon fontSize="large" />}
+                icon={<AnalyticsIcon fontSize="small" />}
                 prop="Grid Utility"
               />
             </button>

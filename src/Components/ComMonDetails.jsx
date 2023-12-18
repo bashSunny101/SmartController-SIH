@@ -71,7 +71,7 @@ function ComMonDetails() {
         </div>
         <div className="container">
           <LineChart
-            width={1400}
+            width={1100}
             height={500}
             data={data}
             margin={{

@@ -17,11 +17,19 @@ const handleClick = (event) => {
 
 
 const Dash = () => {
-  let [utility_status, setUtility_Status] = useState("");
-  let [genPower, setGenPower] = useState("");
-  let [conPower, setConPower] = useState("");
-  let [battery, setBattery] = useState("");
-  let [solar, setsolar] = useState("");
+  // ... (existing state variables)
+  
+    let [utility_status, setUtility_Status] = useState("");
+    let [genPower, setGenPower] = useState("");
+    let [conPower, setConPower] = useState("");
+    let [battery, setBattery] = useState("");
+    let [solar, setsolar] = useState("");
+    let [ids, setIds] = useState("");
+    let [firewall, setFirewall] = useState("");
+    let [honeyTotal, setHoneyTotal] = useState("");
+    let [honeyActive, setHoneyActive] = useState("");
+    let [honeyDetect, setHoneyDetect] = useState("");
+    let [honeypot, setHoneypot] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,19 +40,30 @@ const Dash = () => {
         let inputTotalValue = response.grid_status.data.find(item => item._id === "input").totalValue;
         let outputTotalValue = response.grid_status.data.find(item => item._id === "output").totalValue;
         let batteryPer = response.grid_status.data.find(item => item._id === "storage").totalValue;
-        let solarCon = response.weekly_data(item => item._id === "storage").totalValue;
-        batteryPer=parseInt(batteryPer);
-        batteryPer+="%";
+        let idsActive = response.ids;
+        let fireActive = response.firewall;
+        let honTotal = response.honeypot.total;
+        let honActive = response.honeypot.active;
+        let honDetect = response.honeypot.detections;
+        let honeypott = `${honActive}/${honTotal}`;
+        batteryPer = parseInt(batteryPer);
+        batteryPer += "%";
         inputTotalValue += " KW";
         outputTotalValue += " KW";
         setGenPower(inputTotalValue);
         setConPower(outputTotalValue);
         setBattery(batteryPer);
+        setIds(idsActive);
+        setFirewall(fireActive);
+        setHoneyTotal(honTotal);
+        setHoneyActive(honActive);
+        setHoneyDetect(honDetect);
+        setHoneypot(honeypott)
 
-        if(utility_status==="inactive") {
+        if (utility_status === "inactive") {
           setUtility_Status("Operating in Island Mode");
         }
-        console.log(typeof(response.data.utility_status.data));
+        console.log(typeof (response.data.utility_status.data));
       } catch (error) {
         console.error('Error fetching data: ', error);
       }
@@ -95,8 +114,8 @@ const Dash = () => {
         <div className="row">
           <div className="first">
             <div className="row-2">
-              <MainGrid title="IDS" main="Active" color="green" />
-              <MainGrid title="Firewall" main="Active" color="green" />
+              <MainGrid title="IDS" main={ids} color="green" />
+              <MainGrid title="Firewall" main={firewall} color="green" />
             </div>
             <div className="containers">
               <div className="header">
@@ -113,9 +132,9 @@ const Dash = () => {
               <p> Honeypot </p>
             </div>
             <div>
-              <Info title="Status" main="3/3" />
+              <Info title="Status" main={honeypot} />
               <br />
-              <Info title="Detection" main="💀5" />
+              <Info title="Detection" main={honeyDetect} />
             </div>
           </div>
           <div className="containers">
