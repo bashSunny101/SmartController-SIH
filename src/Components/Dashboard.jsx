@@ -27,28 +27,10 @@ function Dashboard() {
   };
   const renderComponent = () => {
     switch (selectedComponent) {
-      case "Dash":
-        return <Dash />;
-      case "Timeline":
-        return <Timeline />;
-      case "Component Monitoring":
-        return <ComponentMonitoring />;
-      case "Hardware Management":
-        return <HardwareManagement />;
-      case "Patch Management":
-        return <PatchManagement />;
-      case "Security Center":
-        return <SecurityCenter />;
-      default:
-        return null;
-      case "AdminPanel":
-        return <AdminPanel/>;
       // case "Dash":
       //   return <Dash />;
       // case "Timeline":
       //   return <Timeline />;
-      // case "GridMonitoring":
-      //   return <GridMonitoring />;
       // case "Component Monitoring":
       //   return <ComponentMonitoring />;
       // case "Hardware Management":
@@ -59,6 +41,8 @@ function Dashboard() {
       //   return <SecurityCenter />;
       // default:
       //   return null;
+      case "AdminPanel":
+        return <AdminPanel/>;
     }
   };
   return (
