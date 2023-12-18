@@ -88,7 +88,7 @@ function ComponentMonitoring() {
                 </tr>
               </tbody>
             </table>
-            <Link to="/ComMonDetails">
+            <Link to="/ComMonDetails2">
         <button className="mt-5 p-4 rounded-xl border-2 bg-slate-900 text-white">
           More Details
         </button>
@@ -127,7 +127,7 @@ function ComponentMonitoring() {
                 </tr>
               </tbody>
             </table>
-            <Link to="/ComMonDetails">
+            <Link to="/ComMonDetails3">
         <button className="mt-5 p-4 rounded-xl border-2 bg-slate-900 text-white">
           More Details
         </button>

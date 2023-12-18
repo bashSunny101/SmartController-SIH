@@ -10,6 +10,8 @@ import Verify from "./Components/Verify";
 import Dashboard from "./Components/Dashboard";
 import ComponentMonitoring from "./Components/ComponentMonitoring";
 import ComMonDetails from "./Components/ComMonDetails";
+import ComMonDetails2 from "./Components/ComMonDetails2";
+import ComMonDetails3 from "./Components/ComMonDetails3";
 
 function App() {
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
@@ -78,6 +80,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/ComponentMonitoring" element={<ComponentMonitoring />} />
         <Route path="/ComMonDetails" element={<ComMonDetails />} />
+        <Route path="/ComMonDetails2" element={<ComMonDetails2 />} />
+        <Route path="/ComMonDetails3" element={<ComMonDetails3 />} />
       </Routes>
     </Router>
   );

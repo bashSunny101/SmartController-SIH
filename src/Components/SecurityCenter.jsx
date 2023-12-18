@@ -76,7 +76,7 @@ function SecurityCenter() {
               Security Alerts
             </h1>
             <div className="relative">
-              <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500">
+              <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500 text-sm">
                 <option>Last 24 Hours</option>
                 <option>Last 7 Days</option>
                 <option>Last 30 Days</option>
@@ -126,18 +126,18 @@ function SecurityCenter() {
             </table>
           </div>
           <div className="flex justify-end mt-4">
-            <button className="text-lg py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none">
+            <button className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none">
               View Detailed Security Alert Logs
             </button>
           </div>
         </div>
         <div className="bg-gray-800 text-white p-4 rounded-lg mt-5">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-2xl font-bold text-gray-500">
+            <h1 className="text-xl font-bold text-gray-500">
               Honeypot Alerts
             </h1>
             <div className="relative">
-              <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500">
+              <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500 text-sm">
                 <option>Last 24 Hours</option>
                 <option>Last 7 Days</option>
                 <option>Last 30 Days</option>
@@ -187,7 +187,7 @@ function SecurityCenter() {
             </table>
           </div>
           <div className="flex justify-end mt-4">
-            <button className="text-lg py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none">
+            <button className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none">
               View Detailed Security Alert Logs
             </button>
           </div>
@@ -195,23 +195,23 @@ function SecurityCenter() {
 
         <div className="">
           <div className="bg-gray-800 p-4 text-white mt-5">
-            <h2 className="text-2xl font-bold mb-4 text-gray-500">
+            <h2 className="text-xl font-bold mb-4 text-gray-500">
               Access Logs
             </h2>
             <div className="overflow-x-auto mt-3">
-              <table className="min-w-full">
+              <table className="min-w-full text-sm">
                 <thead>
                   <tr>
-                    <th className="px-4 py-2 text-left text-md font-medium uppercase tracking-wider">
+                    <th className="px-4 py-2 text-left   uppercase tracking-wider">
                       Timestamp
                     </th>
-                    <th className="px-4 py-2 text-left text-md font-medium uppercase tracking-wider">
+                    <th className="px-4 py-2 text-left   uppercase tracking-wider">
                       User ID
                     </th>
-                    <th className="px-4 py-2 text-left text-md font-medium uppercase tracking-wider">
+                    <th className="px-4 py-2 text-left   uppercase tracking-wider">
                       IP Address
                     </th>
-                    <th className="px-4 py-2 text-left text-md font-medium uppercase tracking-wider">
+                    <th className="px-4 py-2 text-left   uppercase tracking-wider">
                       Action
                     </th>
                   </tr>

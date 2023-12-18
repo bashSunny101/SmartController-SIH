@@ -61,8 +61,8 @@ function ComMonDetails(prop) {
     <div className="flex flex-col items-center justify-center mt-5 ">
       {/* First Container */}
       <div className="container m-2 bg-black">
-        <div className="text-lg flex justify-between mb-4 font-bold text-yellow-500 ">
-          Power Generation Components
+        <div className="text-lg flex justify-between mb-4 font-bold text-green-500">
+          Energy Storage
           <div className="flex">
 
           <div className="relative">
@@ -106,8 +106,8 @@ function ComMonDetails(prop) {
         
         <div className="container">
           <LineChart
-            width={1000}
-            height={500}
+            width={800}
+            height={400}
             data={data}
             margin={{
               top: 5,

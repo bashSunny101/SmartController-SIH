@@ -61,8 +61,8 @@ function ComMonDetails(prop) {
     <div className="flex flex-col items-center justify-center mt-5 ">
       {/* First Container */}
       <div className="container m-2 bg-black">
-        <div className="text-lg flex justify-between mb-4 font-bold text-yellow-500 ">
-          Power Generation Components
+        <div className="text-lg flex justify-between mb-4 font-bold text-blue-500">
+          Power Consumption Components
           <div className="flex">
 
           <div className="relative">
