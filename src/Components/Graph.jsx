@@ -4,6 +4,7 @@ import "./Graph.css";
 import Chart from 'react-google-charts'
 
 export default function Graph({
+  LineData,
   header,
   title1,
   title2,
@@ -13,17 +14,6 @@ export default function Graph({
   pow33,
 }) {
 
-  const LineData = [
-    ['x', 'Solar', 'Wind','Grid'],
-    [0, 0, 0,0],
-    [1, 10, 5,12],
-    [2, 23, 15,17],
-    [3, 17, 9,18],
-    [4, 18, 10,10],
-    [5, 9, 5,11],
-    [6, 11, 3,13],
-    [7, 27, 19,21],
-]
 const LineChartOptions = {
     hAxis: {
         title: 'Date',
@@ -39,7 +29,7 @@ const LineChartOptions = {
     <>
       <div className="containers">
         <div className="heading">{header}</div>
-        <div className="sub">
+        <div className="subj">
           <div className="side-status">
             <MainGrid title={title1} pow3={pow31} />
             <MainGrid title={title2} pow3={pow32} />

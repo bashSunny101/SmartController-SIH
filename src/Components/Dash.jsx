@@ -5,123 +5,114 @@ import Graph from "./Graph";
 import Info from "./Info";
 import { BACKEND_URI } from "../../env_variables";
 import axios from "axios";
+import Table from "./table";
 
+let firstArray;
+let secondArray;
 
 function convertDataProduction(weeklyData) {
   weeklyData = weeklyData.data;
   if (!Array.isArray(weeklyData)) {
-      console.error('Expected an array for weeklyData');
-      return [];
+    console.error("Expected an array for weeklyData");
+    return [];
   }
 
   const categories = {
-      "solar plants": [],
-      "wind turbines plants": [],
-      "utility": []
+    solar_plants: [],
+    wind_turbines_plants: [],
+    utility: [],
   };
 
-  // Extracting data for each category
-  weeklyData.forEach(item => {
-      if (categories.hasOwnProperty(item.name) && Array.isArray(item.metrics)) {
-          item.metrics.forEach(metric => {
-              if (metric && metric.value !== undefined && metric.from) {
-                  const date = new Date(metric.from).getDate();
-                  categories[item.name].push({ date, value: metric.value });
-              }
-          });
-      }
-  });
-
-  // Creating a map of dates to values for each category
-  const dateMap = {};
-  Object.keys(categories).forEach(category => {
-      categories[category].forEach(data => {
-          if (!dateMap[data.date]) {
-              dateMap[data.date] = { solar: 0, wind: 0, utility: 0 };
-          }
-          if (category === "solar plants") dateMap[data.date].solar += data.value;
-          else if (category === "wind turbines plants") dateMap[data.date].wind += data.value;
-          else if (category === "utility") dateMap[data.date].utility += data.value;
+  weeklyData.forEach((item) => {
+    if (categories.hasOwnProperty(item.name) && Array.isArray(item.metrics)) {
+      item.metrics.forEach((metric) => {
+        if (metric && metric.value !== undefined && metric.from) {
+          const date = new Date(metric.from).getDate();
+          categories[item.name].push({ date, value: metric.value });
+        }
       });
+    }
   });
 
-  // Formatting the final array
-  const finalArray = [['x', 'Solar', 'Wind', 'Utility']];
+  const dateMap = {};
+  Object.keys(categories).forEach((category) => {
+    categories[category].forEach((data) => {
+      if (!dateMap[data.date]) {
+        dateMap[data.date] = { solar: 0, wind: 0, utility: 0 };
+      }
+      if (category === "solar plants") dateMap[data.date].solar += data.value;
+      else if (category === "wind turbines plants")
+        dateMap[data.date].wind += data.value;
+      else if (category === "utility") dateMap[data.date].utility += data.value;
+    });
+  });
+
+  firstArray = [["x", "Solar", "Wind", "Utility"]];
   for (const [date, values] of Object.entries(dateMap)) {
-      finalArray.push([parseInt(date), values.solar, values.wind, values.utility]);
+    firstArray.push([
+      parseInt(date),
+      values.solar,
+      values.wind,
+      values.utility,
+    ]);
   }
-
-  return finalArray.sort((a, b) => a[0] - b[0]); // Sort by date
+  return firstArray.sort((a, b) => a[0] - b[0]); 
 }
-
 
 function convertDataConsumption(weeklyData) {
   weeklyData = weeklyData.data;
   if (!Array.isArray(weeklyData)) {
-      console.error('Expected an array for weeklyData');
-      return [];
+    console.error("Expected an array for weeklyData");
+    return [];
   }
 
   const categories = {
-      "residential": [],
-      "commercial": [],
-      "industial": []
+    residential: [],
+    commercial: [],
+    industial: [],
   };
 
-  // Extracting data for each category
-  weeklyData.forEach(item => {
-      if (categories.hasOwnProperty(item.name) && Array.isArray(item.metrics)) {
-          item.metrics.forEach(metric => {
-              if (metric && metric.value !== undefined && metric.from) {
-                  const date = new Date(metric.from).getDate();
-                  categories[item.name].push({ date, value: metric.value });
-              }
-          });
-      }
-  });
-
-  // Creating a map of dates to values for each category
-  const dateMap = {};
-  Object.keys(categories).forEach(category => {
-      categories[category].forEach(data => {
-          if (!dateMap[data.date]) {
-              dateMap[data.date] = { solar: 0, wind: 0, utility: 0 };
-          }
-          if (category === "residential") dateMap[data.date].solar += data.value;
-          else if (category === "industrial") dateMap[data.date].wind += data.value;
-          else if (category === "commercial") dateMap[data.date].utility += data.value;
+  weeklyData.forEach((item) => {
+    if (categories.hasOwnProperty(item.name) && Array.isArray(item.metrics)) {
+      item.metrics.forEach((metric) => {
+        if (metric && metric.value !== undefined && metric.from) {
+          const date = new Date(metric.from).getDate();
+          categories[item.name].push({ date, value: metric.value });
+        }
       });
+    }
   });
 
-  // Formatting the final array
-  const finalArray = [['x', 'Residential', 'Industrial', 'Commercial']];
+  const dateMap = {};
+  Object.keys(categories).forEach((category) => {
+    categories[category].forEach((data) => {
+      if (!dateMap[data.date]) {
+        dateMap[data.date] = { solar: 0, wind: 0, utility: 0 };
+      }
+      if (category === "residential") dateMap[data.date].solar += data.value;
+      else if (category === "industrial") dateMap[data.date].wind += data.value;
+      else if (category === "commercial")
+        dateMap[data.date].utility += data.value;
+    });
+  });
+
+  secondArray = [["x", "Residential", "Industrial", "Commercial"]];
   for (const [date, values] of Object.entries(dateMap)) {
-      finalArray.push([parseInt(date), values.solar, values.wind, values.utility]);
+    secondArray.push([
+      parseInt(date),
+      values.solar,
+      values.wind,
+      values.utility,
+    ]);
   }
-
-  return finalArray.sort((a, b) => a[0] - b[0]); // Sort by date
+  return secondArray.sort((a, b) => a[0] - b[0]);
 }
-
-// Example usage
-// const response = {
-//   data: {
-//       weekly_data: [ /* ... your data ... */ ]
-//   }
-// };
-
-// const result = convertData(response.data.weekly_data);
-// console.log(result);
-
-
-
-import Table from "./table";
 
 function sleep(milliseconds) {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 const Dash = () => {
-  // ... (existing state variables)
 
   let [utility_status, setUtility_Status] = useState("");
   let [genPower, setGenPower] = useState("");
@@ -161,7 +152,6 @@ const Dash = () => {
         break;
     }
   };
-  console.log(activeTab);
   const renderTable = () => {
     switch (activeTab) {
       case "Security":
@@ -183,7 +173,6 @@ const Dash = () => {
         );
         await sleep(2000);
         response = response.data;
-        console.log(response);
         let utility_status = response.utility_status.data;
         let inputTotalValue = response.grid_status.data.find(
           (item) => item._id === "input"
@@ -251,10 +240,9 @@ const Dash = () => {
       const consumption = convertDataConsumption(response.weekly_data);
       exports.production;
       exports.consumption;
-      console.log("production: ",production);
-      console.log("consumption: ",consumption);
+      // console.log("production: ", production);
+      // console.log("consumption: ", consumption);
     };
-    
 
     fetchData();
 
@@ -272,7 +260,6 @@ const Dash = () => {
           <MainGrid
             title="Grid Status"
             pow1={genPower}
-            height="40px"
             pow2={conPower}
           />
           <MainGrid title="Battery SoC" perc={battery} />
@@ -280,6 +267,7 @@ const Dash = () => {
         </div>
         <div className="graph">
           <Graph
+            LineData={firstArray}
             header="Power Generation"
             title1="Solar"
             title2="Wind"
@@ -289,6 +277,7 @@ const Dash = () => {
             pow33="20KW"
           />
           <Graph
+            LineData={secondArray}
             header="Power Consumption"
             title1="Residential"
             title2="Commercial"
