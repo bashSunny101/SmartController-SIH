@@ -15,6 +15,12 @@ const handleClick = (event) => {
   event.target.classList.add("active");
 };
 
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+
+
 
 const Dash = () => {
   // ... (existing state variables)
@@ -30,13 +36,20 @@ const Dash = () => {
     let [honeyActive, setHoneyActive] = useState("");
     let [honeyDetect, setHoneyDetect] = useState("");
     let [honeypot, setHoneypot] = useState("");
+    const [co2Emissions, setCo2Emissions] = useState('');
+    const [energyEfficiency, setEnergyEfficiency] = useState('');
+    const [solarPlantsValue, setSolarPlantsValue] = useState('');
+    const [windTurbinesValue, setWindTurbinesValue] = useState('');
+    const [batteryValue, setBatteryValue] = useState('');
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         var response = await axios.get(`${BACKEND_URI}/dashboard/get_dashboard`);
+        await sleep(2000); 
         response = response.data;
-        const utility_status = response.utility_status.data;
+        let utility_status = response.utility_status.data;
         let inputTotalValue = response.grid_status.data.find(item => item._id === "input").totalValue;
         let outputTotalValue = response.grid_status.data.find(item => item._id === "output").totalValue;
         let batteryPer = response.grid_status.data.find(item => item._id === "storage").totalValue;
@@ -59,13 +72,30 @@ const Dash = () => {
         setHoneyActive(honActive);
         setHoneyDetect(honDetect);
         setHoneypot(honeypott)
+        const co2Value = response.co2_emission.vslue; 
+      const co2Unit = response.co2_emission.unit;
+        const energyEff = response.energy_efficiency.value; 
+      const energyEffunit = response.energy_efficiency.unit;
+      const solarPlants = response.active_components.data.filter(obj => obj.typeName === "solar plants")[0].activeCount + " MWH";
+      const windTurbines = response.active_components.data.filter(obj => obj.typeName === "wind turbines plants")[0].activeCount + " MWH";
+      const battery = response.active_components.data.filter(obj => obj.typeName === "battery")[0].activeCount + " MWH";
+      if (solarPlants) {
+        setSolarPlantsValue(solarPlants);
+      }
+      if (windTurbines) {
+        setWindTurbinesValue(windTurbines);
+      }
+      if (battery) {
+        setBatteryValue(battery);
+      }
+
+      setCo2Emissions(`${co2Value} ${co2Unit}`);
+      setEnergyEfficiency(`${energyEff} ${energyEffunit}`);
 
         if (utility_status === "inactive") {
           setUtility_Status("Operating in Island Mode");
         }
-        console.log(typeof (response.data.utility_status.data));
       } catch (error) {
-        console.error('Error fetching data: ', error);
       }
     };
 
@@ -79,7 +109,7 @@ const Dash = () => {
 
   return (
     <>
-      <div className="right-panel">
+      <div className="right-panel text-lg">
         <div className="right-grid">
           <MainGrid title="Utility Grid Status" main={utility_status}/>
           <MainGrid
@@ -158,17 +188,17 @@ const Dash = () => {
           </div>
         </div>
         <div className="row">
-          <MainGrid title="CO2 Emissions" main="90 kg/MWh" />
-          <MainGrid title="Energy Efficiency" main="90%" />
+        <MainGrid title="CO2 Emissions" main={co2Emissions} />
+          <MainGrid title="Energy Efficiency" main={energyEfficiency} />
           <div className="containers">
             <div className="heading">
               <p>Active Component Status</p>
             </div>
             <div className="row2 mar">
               <Info title="Nanogrids" main="3" />
-              <Info title="Solar Plants" main="5" />
-              <Info title="Wind Turbines" main="2" />
-              <Info title="Battery Storage" main="4" />
+              <Info title="Solar Plants" main={solarPlantsValue} />
+              <Info title="Wind Turbines" main={windTurbinesValue} />
+              <Info title="Battery Storage" main={batteryValue} />
             </div>
           </div>
         </div>
