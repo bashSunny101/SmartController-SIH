@@ -1,0 +1,14 @@
+.securityalert{
+    border-collapse: collapse;
+}
+
+.securityalert th, .securityalert td{
+    border: 1px solid white;
+    font-size: 14px;
+    padding: 0.2em;
+}
+
+.short{
+    height: 9rem;
+    overflow-y: scroll;
+}
