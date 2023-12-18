@@ -2,12 +2,12 @@ nav {
   position: sticky !important;
 }
 
-body::-webkit-scrollbar{
+*::-webkit-scrollbar{
   display: none;
 }
 
 .admin{
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
   border: 1px solid white;
   border-radius: 0.5rem;
   padding: 0 1em;
@@ -25,10 +25,14 @@ body::-webkit-scrollbar{
   display: flex;
   flex-direction: column;
   gap: 1em;
+  position: relative; 
+  height: 80vh; 
+  overflow-y: scroll;
 }
 
 .right-panel{
   height: 80vh;
+  
 }
 
 .right-grid,
@@ -65,6 +69,7 @@ button.active {
 }
 
 .display {
+  /* font-family: "Courier New", Courier, monospace; */
   display: flex;
   gap: 3em;
   margin: 2em 1em;

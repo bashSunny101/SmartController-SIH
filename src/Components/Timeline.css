@@ -1,18 +1,15 @@
-
-
 .vert span{
     background: transparent;
-    border: 1px solid white;
 }
 
 .vert{
     position: absolute;
-    left: 50%;
+    left: 40%;
 }
 
 .timeline-card-content{
     background: #000024 !important;
-    border: 1px solid white;
+    border: 1px solid grey;
 }
 
 .laVdxH::after, .bOPcbp{
@@ -25,7 +22,7 @@
 }
 
 .bGOvhX, .my-card-title{
-    color: white !important;
+    color: grey !important;
     font-size: 1.5rem !important;
 }
 
@@ -35,7 +32,13 @@
 
 @media only screen and (max-width: 1140px) {
     .vert{
-        position:static;
+        left: 20%;
+    }
+}
+
+@media only screen and (max-width: 912px) {
+    .vert{
+        position: static;
         left: 0%;
     }
 }

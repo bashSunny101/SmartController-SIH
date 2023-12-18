@@ -58,9 +58,9 @@ const data = [
 
 function ComMonDetails() {
   return (
-    <div className="flex flex-col items-center justify-center  ">
+    <div className="flex flex-col items-center justify-center mt-5 ">
       {/* First Container */}
-      <div className="container m-2">
+      <div className="container m-2 bg-black">
         <div className="text-3xl mb-4 font-bold ">
           Power Generation Components
         </div>
@@ -85,10 +85,10 @@ function ComMonDetails() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            <Line type="" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="" dataKey="uv" stroke="#82ca9d"activeDot={{ r: 8 }} />
           </LineChart>
-          <table className="min-w-full">
+          <table className="min-w-full mt-4">
             <thead>
               <tr className="text-blue-500">
                 <th className="border p-3">Source Type</th>
@@ -120,7 +120,7 @@ function ComMonDetails() {
       </div>
 
       {/* Second Container */}
-      <div className="container mt-6 ">
+      <div className="container mt-6 bg-black ">
         <div className="text-3xl mb-4 font-bold ">
             Component List
         </div>

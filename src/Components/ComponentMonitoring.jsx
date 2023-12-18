@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import ComMonDetails from "./ComMonDetails";
+import { func } from "prop-types";
 
 function ComponentMonitoring() {
   const [isToggled, setToggled] = useState(false);
@@ -9,121 +11,53 @@ function ComponentMonitoring() {
     setToggled(!isToggled);
   };
 
+  
+
+
   return (
     <>
-        <div className="bord  er-gray-800 flex-col justify-center items-center h-screen ">
-          <div className="container ">
-            <div className="flex justify-between m-2 text-2xl">
-              Power Generation Components
-              <button
-                className={`px-4 py-1 ${
-                  isToggled ? "bg-green-600" : "bg-red-500"
-                } text-white rounded-md`}
-                onClick={handleToggle}
-              >
-                {isToggled ? "Enabled" : "Disabled"}
-              </button>
+      <div className=" border-gray-800 flex-col justify-center items-center h-screen     ">
+        <div  >
+          <div className="flex-col container  bg-black">
+            <div className="flex justify-between  text-2xl w-screen">
+              <div className=" p-2  flex-col  ">
+                <p className="font-bold text">Power Generation Components</p>
+              </div>
+              <div >
+                
+                <p className="text-green-500 text-2xl font-bold">Live</p>
+              </div>
             </div>
-
-            <div className="container">
-              <table className="min-w-full">
-                <thead>
-                  <tr>
-                    <th className="border p-3">Source Type</th>
-                    <th className="border p-3">Energy Generated</th>
-                    <th className="border p-3">Active Component Sites</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border p-3">1</td>
-                    <td className="border p-3">2</td>
-                    <td className="border p-3">3</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <table className="mt-4 text-2xl w-full">
+              <thead>
+                <tr>
+                  <th className="border p-3">Source Type</th>
+                  <th className="border p-3">Energy Generated</th>
+                  <th className="border p-3">Active Component Sites</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border p-3">Solar Plant</td>
+                  <td className="border p-3">44</td>
+                  <td className="border p-3">3</td>
+                </tr>
+                <tr>
+                  <td className="border p-3">Wind Plant</td>
+                  <td className="border p-3">24</td>
+                  <td className="border p-3">3</td>
+                </tr>
+              </tbody>
+            </table>
             <Link to="/ComMonDetails">
-              <button className="mt-3  p-3 text-sm border-2 hover:bg-black rounded-2xl">
-                More details
-              </button>
-            </Link>
-          </div>
-          <div className="container">
-            <div className="flex justify-between m-2 text-2xl">
-              Power Generation Components
-              <button
-                className={`px-4 py-1 ${
-                  isToggled ? "bg-green-600" : "bg-red-500"
-                } text-white rounded-md`}
-                onClick={handleToggle}
-              >
-                {isToggled ? "Enabled" : "Disabled"}
-              </button>
-            </div>
-
-            <div className="container">
-              <table className="min-w-full">
-                <thead>
-                  <tr>
-                    <th className="border p-3">Source Type</th>
-                    <th className="border p-3">Energy Generated</th>
-                    <th className="border p-3">Active Component Sites</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border p-3">1</td>
-                    <td className="border p-3">2</td>
-                    <td className="border p-3">3</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <Link to="/ComMonDetails">
-              <button className="mt-3  p-3 text-sm border-2 hover:bg-black rounded-2xl">
-                More details
-              </button>
-            </Link>
-          </div>
-          <div className="container">
-            <div className="flex justify-between m-2 text-2xl">
-              Power Generation Components
-              <button
-                className={`px-4 py-1 ${
-                  isToggled ? "bg-green-600" : "bg-red-500"
-                } text-white rounded-md`}
-                onClick={handleToggle}
-              >
-                {isToggled ? "Enabled" : "Disabled"}
-              </button>
-            </div>
-
-            <div className="container">
-              <table className="min-w-full">
-                <thead>
-                  <tr>
-                    <th className="border p-3">Source Type</th>
-                    <th className="border p-3">Energy Generated</th>
-                    <th className="border p-3">Active Component Sites</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border p-3">1</td>
-                    <td className="border p-3">2</td>
-                    <td className="border p-3">3</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <Link to="/ComMonDetails">
-              <button className="mt-3  p-3 text-sm border-2 hover:bg-black rounded-2xl">
-                More details
-              </button>
-            </Link>
+        <button className="mt-5 p-4 rounded-xl border-2 bg-slate-900 text-white">
+          More Details
+        </button>
+      </Link>
           </div>
         </div>
+        
+      </div>
     </>
   );
 }

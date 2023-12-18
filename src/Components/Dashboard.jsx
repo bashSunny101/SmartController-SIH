@@ -8,9 +8,11 @@ import { useState } from "react";
 import ComponentMonitoring from "./ComponentMonitoring";
 import PatchManagement from "./PatchManagement";
 import HardwareManagement from "./HardwareManagement";
+import SecurityCenter from "./SecurityCenter";
+import GridMonitoring from "./GridMonitoring";
 
 function Dashboard() {
-  let compType = localStorage.getItem("prp")||"Dash";
+  let compType = localStorage.getItem("prp") || "Dash";
   const [selectedComponent, setSelectedComponent] = useState(compType);
 
   useEffect(() => {
@@ -28,12 +30,16 @@ function Dashboard() {
         return <Dash />;
       case "Timeline":
         return <Timeline />;
+      case "GridMonitoring":
+        return <GridMonitoring />;
       case "Component Monitoring":
         return <ComponentMonitoring />;
       case "Hardware Management":
         return <HardwareManagement />;
       case "Patch Management":
         return <PatchManagement />;
+      case "Security Center":
+        return <SecurityCenter />;
       default:
         return null;
     }
@@ -41,7 +47,7 @@ function Dashboard() {
   return (
     <>
       <div>
-        <nav className=" back bg-white dark:bg-gray-900 w-full z-20 top-0 sticky start-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className=" back bg-white dark:bg-gray-900  z-20 top-0 sticky start-0 border-b border-gray-200 dark:border-gray-600">
           <div className="flex flex-wrap items-center justify-between mx-auto p-4 nav">
             <a
               href="/"
@@ -49,7 +55,7 @@ function Dashboard() {
             >
               <img
                 src="src\assets\image (4).svg"
-                className="h-8"
+                className="h-10"
                 alt="Vidyut Logo"
               />
             </a>
@@ -65,6 +71,12 @@ function Dashboard() {
               />
             </button>
             <button onClick={() => handleToggleClick("Timeline")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Grid Utility"
+              />
+            </button>
+            <button onClick={() => handleToggleClick("GridMonitoring")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Grid Monitoring"
@@ -88,9 +100,14 @@ function Dashboard() {
                 prop="Patch Management"
               />
             </button>
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
-            <PanelGrid icon={<AnalyticsIcon fontSize="large" />} prop="" />
+            <button onClick={() => handleToggleClick("Security Center")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="large" />}
+                prop="Security Center"
+              />
+            </button>
           </div>
+
           <div className="scroll">{renderComponent()}</div>
         </div>
       </div>
