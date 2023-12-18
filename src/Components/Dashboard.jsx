@@ -10,8 +10,10 @@ import PatchManagement from "./PatchManagement";
 import HardwareManagement from "./HardwareManagement";
 import SecurityCenter from "./SecurityCenter";
 import GridMonitoring from "./GridMonitoring";
+import AdminPanel from "./AdminPanel";
 
 function Dashboard() {
+  
   let compType = localStorage.getItem("prp") || "Dash";
   const [selectedComponent, setSelectedComponent] = useState(compType);
 
@@ -26,22 +28,24 @@ function Dashboard() {
   };
   const renderComponent = () => {
     switch (selectedComponent) {
-      case "Dash":
-        return <Dash />;
-      case "Timeline":
-        return <Timeline />;
-      case "GridMonitoring":
-        return <GridMonitoring />;
-      case "Component Monitoring":
-        return <ComponentMonitoring />;
-      case "Hardware Management":
-        return <HardwareManagement />;
-      case "Patch Management":
-        return <PatchManagement />;
-      case "Security Center":
-        return <SecurityCenter />;
-      default:
-        return null;
+      case "AdminPanel":
+        return <AdminPanel/>;
+      // case "Dash":
+      //   return <Dash />;
+      // case "Timeline":
+      //   return <Timeline />;
+      // case "GridMonitoring":
+      //   return <GridMonitoring />;
+      // case "Component Monitoring":
+      //   return <ComponentMonitoring />;
+      // case "Hardware Management":
+      //   return <HardwareManagement />;
+      // case "Patch Management":
+      //   return <PatchManagement />;
+      // case "Security Center":
+      //   return <SecurityCenter />;
+      // default:
+      //   return null;
     }
   };
   return (
@@ -64,12 +68,19 @@ function Dashboard() {
         </nav>
         <div className="display">
           <div className="left-panel">
-            <button onClick={() => handleToggleClick("Dash")}>
+             <button onClick={() => handleToggleClick("Dash")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="small" />}
                 prop="DashBoard"
               />
             </button>
+            <button onClick={() => handleToggleClick("AdminPanel")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="small" />}
+                prop="Admin Panel"
+              />
+             </button>
+            {/*
             <button onClick={() => handleToggleClick("Timeline")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="small" />}
@@ -105,7 +116,7 @@ function Dashboard() {
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Security Center"
               />
-            </button>
+            </button> */}
           </div>
 
           <div className="scroll">{renderComponent()}</div>

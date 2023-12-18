@@ -5,7 +5,7 @@ import { BACKEND_URI } from '../../env_variables';
 
 function Verify({ onVerificationSuccess }) {
   const navigate = useNavigate();
-  const [otp, setOtp] = useState(["", "", "", ""]); // Array to store OTP digits
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]); // Array to store OTP digits
   const [loginError, setLoginError] = useState("");
   const userEmail = localStorage.getItem("email") || ""; // Retrieve email from local storage
 
