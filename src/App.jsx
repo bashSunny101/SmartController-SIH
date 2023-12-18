@@ -12,6 +12,9 @@ import ComponentMonitoring from "./Components/ComponentMonitoring";
 import ComMonDetails from "./Components/ComMonDetails";
 import ComMonDetails2 from "./Components/ComMonDetails2";
 import ComMonDetails3 from "./Components/ComMonDetails3";
+import DetailedSecurityLogs from "./Components/DetailedSecurityLogs";
+import DetailedHoneypotAlert from "./Components/DetailedHoneypotAlert";
+
 
 function App() {
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
@@ -82,6 +85,8 @@ function App() {
         <Route path="/ComMonDetails" element={<ComMonDetails />} />
         <Route path="/ComMonDetails2" element={<ComMonDetails2 />} />
         <Route path="/ComMonDetails3" element={<ComMonDetails3 />} />
+        <Route path="/DetailedSecurityLogs" element={<DetailedSecurityLogs/>} />
+        <Route path="/DetailedHoneypotAlert" element={<DetailedHoneypotAlert/>} />
       </Routes>
     </Router>
   );

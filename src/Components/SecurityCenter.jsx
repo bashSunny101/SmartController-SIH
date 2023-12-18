@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+
 const alerts = [
   { type: "SQL Injection Attempt", severity: "High", count: 3 },
   { type: "Cross-Site Scripting (XSS)", severity: "Medium", count: 5 },
@@ -126,9 +129,11 @@ function SecurityCenter() {
             </table>
           </div>
           <div className="flex justify-end mt-4">
-            <button className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none">
+            <Link to="/DetailedSecurityLogs">
+            <button className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none" >
               View Detailed Security Alert Logs
             </button>
+            </Link>
           </div>
         </div>
         <div className="bg-gray-800 text-white p-4 rounded-lg mt-5">
@@ -187,9 +192,11 @@ function SecurityCenter() {
             </table>
           </div>
           <div className="flex justify-end mt-4">
+          <Link to="/DetailedHoneypotAlert">
             <button className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none">
-              View Detailed Security Alert Logs
+              View Detailed Honeypot Alerts
             </button>
+            </Link>
           </div>
         </div>
 
