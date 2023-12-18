@@ -5,6 +5,115 @@ import Graph from "./Graph";
 import Info from "./Info";
 import { BACKEND_URI } from "../../env_variables";
 import axios from "axios";
+
+
+function convertDataProduction(weeklyData) {
+  weeklyData = weeklyData.data;
+  if (!Array.isArray(weeklyData)) {
+      console.error('Expected an array for weeklyData');
+      return [];
+  }
+
+  const categories = {
+      "solar plants": [],
+      "wind turbines plants": [],
+      "utility": []
+  };
+
+  // Extracting data for each category
+  weeklyData.forEach(item => {
+      if (categories.hasOwnProperty(item.name) && Array.isArray(item.metrics)) {
+          item.metrics.forEach(metric => {
+              if (metric && metric.value !== undefined && metric.from) {
+                  const date = new Date(metric.from).getDate();
+                  categories[item.name].push({ date, value: metric.value });
+              }
+          });
+      }
+  });
+
+  // Creating a map of dates to values for each category
+  const dateMap = {};
+  Object.keys(categories).forEach(category => {
+      categories[category].forEach(data => {
+          if (!dateMap[data.date]) {
+              dateMap[data.date] = { solar: 0, wind: 0, utility: 0 };
+          }
+          if (category === "solar plants") dateMap[data.date].solar += data.value;
+          else if (category === "wind turbines plants") dateMap[data.date].wind += data.value;
+          else if (category === "utility") dateMap[data.date].utility += data.value;
+      });
+  });
+
+  // Formatting the final array
+  const finalArray = [['x', 'Solar', 'Wind', 'Utility']];
+  for (const [date, values] of Object.entries(dateMap)) {
+      finalArray.push([parseInt(date), values.solar, values.wind, values.utility]);
+  }
+
+  return finalArray.sort((a, b) => a[0] - b[0]); // Sort by date
+}
+
+
+function convertDataConsumption(weeklyData) {
+  weeklyData = weeklyData.data;
+  if (!Array.isArray(weeklyData)) {
+      console.error('Expected an array for weeklyData');
+      return [];
+  }
+
+  const categories = {
+      "residential": [],
+      "commercial": [],
+      "industial": []
+  };
+
+  // Extracting data for each category
+  weeklyData.forEach(item => {
+      if (categories.hasOwnProperty(item.name) && Array.isArray(item.metrics)) {
+          item.metrics.forEach(metric => {
+              if (metric && metric.value !== undefined && metric.from) {
+                  const date = new Date(metric.from).getDate();
+                  categories[item.name].push({ date, value: metric.value });
+              }
+          });
+      }
+  });
+
+  // Creating a map of dates to values for each category
+  const dateMap = {};
+  Object.keys(categories).forEach(category => {
+      categories[category].forEach(data => {
+          if (!dateMap[data.date]) {
+              dateMap[data.date] = { solar: 0, wind: 0, utility: 0 };
+          }
+          if (category === "residential") dateMap[data.date].solar += data.value;
+          else if (category === "industrial") dateMap[data.date].wind += data.value;
+          else if (category === "commercial") dateMap[data.date].utility += data.value;
+      });
+  });
+
+  // Formatting the final array
+  const finalArray = [['x', 'Residential', 'Industrial', 'Commercial']];
+  for (const [date, values] of Object.entries(dateMap)) {
+      finalArray.push([parseInt(date), values.solar, values.wind, values.utility]);
+  }
+
+  return finalArray.sort((a, b) => a[0] - b[0]); // Sort by date
+}
+
+// Example usage
+// const response = {
+//   data: {
+//       weekly_data: [ /* ... your data ... */ ]
+//   }
+// };
+
+// const result = convertData(response.data.weekly_data);
+// console.log(result);
+
+
+
 import Table from "./table";
 
 function sleep(milliseconds) {
@@ -131,7 +240,6 @@ const Dash = () => {
         if (battery) {
           setBatteryValue(battery);
         }
-
         setCo2Emissions(`${co2Value} ${co2Unit}`);
         setEnergyEfficiency(`${energyEff} ${energyEffunit}`);
 
@@ -139,7 +247,14 @@ const Dash = () => {
           setUtility_Status("Operating in Island Mode");
         }
       } catch (error) {}
+      const production = convertDataProduction(response.weekly_data);
+      const consumption = convertDataConsumption(response.weekly_data);
+      exports.production;
+      exports.consumption;
+      console.log("production: ",production);
+      console.log("consumption: ",consumption);
     };
+    
 
     fetchData();
 
