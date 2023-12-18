@@ -20,7 +20,7 @@ function PatchManagement() {
                 <p className="text-center text-2xl text-blue-600">4</p>
               </div>
             </div>
-            <table className="mt-4 max-w-screen  text-2xl">
+            <table className="mt-4 min-w-full  text-2xl">
               <thead>
                 <tr>
                   <th className="border p-3">Device Type</th>
