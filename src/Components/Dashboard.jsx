@@ -65,18 +65,18 @@ function Dashboard() {
         </nav>
         <div className="display">
           <div className="left-panel">
-             <button onClick={() => handleToggleClick("Dash")}>
-              <PanelGrid
-                icon={<AnalyticsIcon fontSize="small" />}
-                prop="DashBoard"
-              />
-            </button>
             <button onClick={() => handleToggleClick("AdminPanel")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="small" />}
                 prop="Admin Panel"
               />
              </button>
+             <button onClick={() => handleToggleClick("Dash")}>
+              <PanelGrid
+                icon={<AnalyticsIcon fontSize="small" />}
+                prop="DashBoard"
+              />
+            </button>
           
             {/* <button onClick={() => handleToggleClick("Timeline")}>
               <PanelGrid
