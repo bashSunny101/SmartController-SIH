@@ -1,44 +1,64 @@
-.vert span{
-    background: transparent;
+.vert span {
+  background: transparent;
 }
 
-.vert{
-    position: absolute;
-    left: 40%;
+.vert {
+  position: absolute;
+  left: 40%;
 }
 
-.timeline-card-content{
-    background: #000024 !important;
-    border: 1px solid grey;
+.timeline-card-content {
+  background: #000024 !important;
+  border: 1px solid grey;
 }
 
-.laVdxH::after, .bOPcbp{
-    background-color: white !important;
+.laVdxH::after,
+.bOPcbp {
+  background-color: white !important;
 }
 
-#timeline-main-wrapper{
-    font-family: 'Courier New', Courier, monospace;
-    background: #000024 !important;
+#timeline-main-wrapper {
+  font-family: "Courier New", Courier, monospace;
+  background: #000024 !important;
 }
 
-.bGOvhX, .my-card-title{
-    color: grey !important;
-    font-size: 1.5rem !important;
+.bGOvhX,
+.my-card-title {
+  color: grey !important;
+  font-size: 1.5rem !important;
 }
 
-.bYyciE, .cVYrHn, .my-card-title{
-    text-align: center !important;
+.bYyciE,
+.cVYrHn,
+.my-card-title {
+  text-align: center !important;
+}
+
+.containers2 {
+  color: grey;
+  border: 2px solid grey;
+  border-radius: 0.5rem;
+  padding: 1em;
+  text-align: center;
+  display: flex;
+  gap: 1em;
+  justify-content: space-around;
+}
+
+.on {
+  border: 2px solid green !important;
+  color: green !important;
 }
 
 @media only screen and (max-width: 1140px) {
-    .vert{
-        left: 20%;
-    }
+  .vert {
+    left: 20%;
+  }
 }
 
 @media only screen and (max-width: 912px) {
-    .vert{
-        position: static;
-        left: 0%;
-    }
+  .vert {
+    position: static;
+    left: 0%;
+  }
 }
