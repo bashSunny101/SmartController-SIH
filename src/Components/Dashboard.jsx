@@ -29,20 +29,20 @@ function Dashboard() {
     switch (selectedComponent) {
       case "AdminPanel":
         return <AdminPanel/>;
-      // case "Dash":
-      //   return <Dash />;
-      // case "Timeline":
-      //   return <Timeline />;
-      // case "Component Monitoring":
-      //   return <ComponentMonitoring />;
-      // case "Hardware Management":
-      //   return <HardwareManagement />;
-      // case "Patch Management":
-      //   return <PatchManagement />;
-      // case "Security Center":
-      //   return <SecurityCenter />;
-      // default:
-      //   return null;
+      case "Dash":
+        return <Dash />;
+      case "Timeline":
+        return <Timeline />;
+      case "Component Monitoring":
+        return <ComponentMonitoring />;
+      case "Hardware Management":
+        return <HardwareManagement />;
+      case "Patch Management":
+        return <PatchManagement />;
+      case "Security Center":
+        return <SecurityCenter />;
+      default:
+        return null;
     }
   };
   return (
@@ -74,11 +74,11 @@ function Dashboard() {
              <button onClick={() => handleToggleClick("Dash")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="small" />}
-                prop="DashBoard"
+                prop="Dashboard"
               />
             </button>
           
-            {/* <button onClick={() => handleToggleClick("Timeline")}>
+              <button onClick={() => handleToggleClick("Timeline")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="small" />}
                 prop="Grid Utility"
@@ -107,7 +107,7 @@ function Dashboard() {
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Security Center"
               />
-            </button>  */}
+            </button>   
           </div>
 
           <div className="scroll">{renderComponent()}</div>
