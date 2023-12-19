@@ -37,7 +37,7 @@ function App() {
             <div className="flex-col p-8 text-center">
               <div className="flex flex-col items-center mb-11">
                 <img
-                  src="src\assets\image (4).svg"
+                  src="src\assets\logo.svg"
                   alt="logo"
                   width={350}
                   height={79}

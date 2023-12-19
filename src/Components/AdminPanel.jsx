@@ -70,16 +70,16 @@ function AdminPanel() {
   <>
     <div className="flex">
       {qr ? (
-        <div className="border-2 ml-56">
+        <div className="border-2 ml-56 flex justify-center ">
           {qr && (
             <>
               <img
-                className="m-4 w-72 h-72"
+                className="m-2  w-72 h-72"
                 src={qr.data.toString()}
                 alt="QR Code"
               />
-              <div className="mt-4 font-sans">
-                <h3 className="text-xl font-bold  text-red-500 mb-3 ml-4">
+              <div className="mt-4 font-sans mr-3">
+                <h3 className="text-2xl font-bold  text-red-500 mb-3 ml-4">
                   Employee Details
                 </h3>
                 <ul className=" pl-4 ">
@@ -102,7 +102,7 @@ function AdminPanel() {
         </div>
       ) : (
         <>
-          <div className=" h-screen ">
+          <div className=" h-screen w-scree">
             {/* <div className="border-2 flex justify-center ">
               <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
                 <div className="mt-2 mb-2">
@@ -127,7 +127,7 @@ function AdminPanel() {
                 </div>
               </div>
             </div> */}
-            <div className="border-2 mt-4 flex justify-center ">
+            <div className="border-2  flex justify-center ">
               <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-6">
                   Employee Registration
@@ -136,7 +136,7 @@ function AdminPanel() {
                 <form onSubmit={handleSubmit} className="mb-4">
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-lg font-bold mb-2"
                   htmlFor="empID"
                 >
                   Employee ID:
@@ -153,7 +153,7 @@ function AdminPanel() {
 
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-lg font-bold mb-2"
                   htmlFor="username"
                 >
                   Username:
@@ -170,7 +170,7 @@ function AdminPanel() {
 
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-lg font-bold mb-2"
                   htmlFor="email"
                 >
                   Email:
@@ -187,7 +187,7 @@ function AdminPanel() {
 
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-lg font-bold mb-2"
                   htmlFor="role"
                 >
                   Role:
@@ -211,7 +211,7 @@ function AdminPanel() {
 
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-lg font-bold mb-2"
                   htmlFor="password"
                 >
                   Password:

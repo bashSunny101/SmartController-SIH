@@ -52,30 +52,30 @@ function SecurityCenter() {
       <div className="container  text-lg ">
         <div className=" text-white p-2 rounded-lg flex justify-between items-center w-full  ">
           <div className="flex flex-col items-center border-r-2 px-2">
-            <span className="text-xl font-medium">Security Alerts</span>
-            <span className="text-xl font-bold">52</span>
+            <span className="text-lg font-medium">Security Alerts</span>
+            <span className="text-lg font-bold">52</span>
           </div>
           <div className="flex flex-col items-center border-r-2 px-2">
-            <span className="text-xl font-medium">Blocked Users</span>
-            <span className="text-xl font-bold">52</span>
+            <span className="text-lg font-medium">Blocked Users</span>
+            <span className="text-lg font-bold">52</span>
           </div>
           <div className="flex flex-col items-center border-r-2 px-2">
-            <span className="text-xl font-medium">Surveillance Users</span>
-            <span className="text-xl font-bold">65</span>
+            <span className="text-lg font-medium">Surveillance Users</span>
+            <span className="text-lg font-bold">65</span>
           </div>
           <div className="flex flex-col items-center border-r-2 px-2">
-            <span className="text-xl font-medium">Honeypot Alerts</span>
-            <span className="text-xl font-bold">32</span>
+            <span className="text-lg font-medium">Honeypot Alerts</span>
+            <span className="text-lg font-bold">32</span>
           </div>
           <div className="flex items-center ">
-            <span className="text-xl font-medium text-green-400">●</span>
-            <span className="text-xl font-medium ">Last 24 Hours</span>
+            <span className="text-lg font-medium text-green-400">●</span>
+            <span className="text-lg font-medium ">Last 24 Hours</span>
           </div>
         </div>
 
         <div className="bg-gray-800 text-white p-4 rounded-lg mt-4">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-bold  text-gray-500">
+            <h1 className="text-lg font-bold  text-gray-500">
               Security Alerts
             </h1>
             <div className="relative">
@@ -138,7 +138,7 @@ function SecurityCenter() {
         </div>
         <div className="bg-gray-800 text-white p-4 rounded-lg mt-5">
           <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-bold text-gray-500">
+            <h1 className="text-lg font-bold text-gray-500">
               Honeypot Alerts
             </h1>
             <div className="relative">
@@ -202,7 +202,7 @@ function SecurityCenter() {
 
         <div className="">
           <div className="bg-gray-800 p-4 text-white mt-5">
-            <h2 className="text-xl font-bold mb-4 text-gray-500">
+            <h2 className="text-lg font-bold mb-4 text-gray-500">
               Access Logs
             </h2>
             <div className="overflow-x-auto mt-3">
