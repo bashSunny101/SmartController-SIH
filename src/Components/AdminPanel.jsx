@@ -67,40 +67,73 @@ function AdminPanel() {
   };
 
   return (
-    <>
+  <>
     <div className="flex">
-      <div className=" h-screen ">
-        <div className="border-2 flex justify-center ">
-          <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
-            <div className="mt-2 mb-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                Add Privilege
-              </h3>
-              <div className="flex">
-                <input
-                  className="flex-grow shadow bg-gray-200 appearance-none border rounded-l py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Add Privilege"
-                  value={privilegeRole}
-                  onChange={handlePrivilegeRoleChange}
-                />
-                <button
-                  className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-r focus:outline-none focus:shadow-outline"
-                  onClick={handleAddPrivilege}
-                >
-                  Add
-                </button>
+      {qr ? (
+        <div className="border-2 ml-56">
+          {qr && (
+            <>
+              <img
+                className="m-4 w-72 h-72"
+                src={qr.data.toString()}
+                alt="QR Code"
+              />
+              <div className="mt-4 font-sans">
+                <h3 className="text-xl font-bold  text-red-500 mb-3 ml-4">
+                  Employee Details
+                </h3>
+                <ul className=" pl-4 ">
+                  <li>
+                    <strong>Employee ID:</strong> {formData.empID}
+                  </li>
+                  <li>
+                    <strong>Username:</strong> {formData.username}
+                  </li>
+                  <li>
+                    <strong>Email:</strong> {formData.email}
+                  </li>
+                  <li>
+                    <strong>Role:</strong> {formData.role}
+                  </li>
+                </ul>
+              </div>
+            </>
+          )}
+        </div>
+      ) : (
+        <>
+          <div className=" h-screen ">
+            <div className="border-2 flex justify-center ">
+              <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
+                <div className="mt-2 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                    Add Privilege
+                  </h3>
+                  <div className="flex">
+                    <input
+                      className="flex-grow shadow bg-gray-200 appearance-none border rounded-l py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="text"
+                      placeholder="Add Privilege"
+                      value={privilegeRole}
+                      onChange={handlePrivilegeRoleChange}
+                    />
+                    <button
+                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-r focus:outline-none focus:shadow-outline"
+                      onClick={handleAddPrivilege}
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            </div>
-            </div>
             <div className="border-2 mt-4 flex justify-center ">
-          <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-              Employee Registration
-            </h2>
+              <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+                  Employee Registration
+                </h2>
 
-            <form onSubmit={handleSubmit} className="mb-4">
+                <form onSubmit={handleSubmit} className="mb-4">
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -200,25 +233,15 @@ function AdminPanel() {
                 Submit
               </button>
             </form>
-          
-              
-
-          </div>
-        </div>
-
-        </div>
-        <div className="border-2 ml-56">
-          {qr && (
-            <img
-            className=" m-4  w-72 h-72 "
-            src={qr.data.toString()}
-            alt="QR Code"
-            />
-            )}
+              </div>
             </div>
-      </div>
-    </>
-  );
+          </div>
+        </>
+      )}
+    </div>
+  </>
+);
+
 }
 
 export default AdminPanel;
