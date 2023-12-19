@@ -1,18 +1,25 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BACKEND_URI } from "../../env_variables";
-import axios from "axios"; // Make sure to import axios
+import axios from "axios";
+import QRCode from "qrcode.react";
 
 function AdminPanel() {
   const [roles, setRoles] = useState([]);
-
+  const [formData, setFormData] = useState({
+    empID: "",
+    username: "",
+    email: "",
+    role: "",
+    password: "",
+  });
+  const [qr, setQr] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${BACKEND_URI}/admin/get_roles`);
         if (response.data && Array.isArray(response.data.data)) {
-          setRoles(response.data.data); // Update this line
+          setRoles(response.data.data);
         } else {
           console.error("Unexpected response format:", response.data);
         }
@@ -22,15 +29,7 @@ function AdminPanel() {
     };
 
     fetchData();
-     // Clean up the interval on component unmount
   }, []);
-  const [formData, setFormData] = useState({
-    empID: "",
-    username: "",
-    email: "",
-    role: "",
-    password: "",
-  });
 
   const handleChange = (e) => {
     setFormData({
@@ -38,34 +37,24 @@ function AdminPanel() {
       [e.target.name]: e.target.value,
     });
   };
-  const [qr, setQr] = useState("");
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
-  
+
     try {
-      // Replace '/submit_form_data' with your actual API endpoint
-      const response = await axios.post(`${BACKEND_URI}/admin/signup`, formData);
-      setQr(response.data)
-      // Handle the response as needed
+      const response = await axios.post(
+        `${BACKEND_URI}/admin/signup`,
+        formData
+      );
+      setQr(response.data);
       console.log(response.data);
       alert("Form submitted successfully!");
-  
-      // Optionally reset the form here
-      setFormData({
-        empID: "",
-        username: "",
-        email: "",
-        role: "",
-        password: "",
-      });
-  
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Failed to submit the form.");
     }
   };
+
   return (
     <>
       <div className=" flex justify-center ">
@@ -73,7 +62,9 @@ function AdminPanel() {
           onSubmit={handleSubmit}
           className=" p-6 border-2 bg-gray-300 shadow-md rounded  "
         >
-          <h2 className="text-xl font-bold text-blue-700 mb-5">Employee Registration</h2>
+          <h2 className="text-xl font-bold text-blue-700 mb-5">
+            Employee Registration
+          </h2>
 
           <div className="mb-4">
             <label
@@ -176,7 +167,9 @@ function AdminPanel() {
             </button>
           </div>
         </form>
-        <img src={qr} alt="qrcode"/>
+        <div>
+          {qr && <img src={qr.data.toString()} alt="QR Code" />}
+        </div>
       </div>
     </>
   );
