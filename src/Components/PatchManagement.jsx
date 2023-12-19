@@ -46,12 +46,12 @@ function PatchManagement() {
             </table>
           </div>
         </div>
-        <div className="mt-4">
-          <div className="flex-col container bg-gray-800 ">
+        <div className="mt-4 w-full">
+          <div className="flex-col w-full bg-gray-800 ">
             <div className="flex justify-between">
               <div className=" p-2 rounded-md flex-col ">
                 <p className="font-bold ">Patch Update Logs</p>
-                <p className="text-center text-2xl text-gray-200">
+                <p className="text-center text-2xl text-gray-200 w-full">
                   <table className="mt-4 min-w-full">
                     <thead>
                       <tr>

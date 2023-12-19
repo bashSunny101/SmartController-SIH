@@ -38,7 +38,7 @@ function AdminPanel() {
       [e.target.name]: e.target.value,
     });
   };
-  const [qr, setQr] = useState(null);
+  const [qr, setQr] = useState("");
 
   const handleSubmit = async (e) => {
     
@@ -176,7 +176,7 @@ function AdminPanel() {
             </button>
           </div>
         </form>
-        <img src={qr} alt="qrcode" className="h-100 w-100"/>
+        <img src={qr} alt="qrcode"/>
       </div>
     </>
   );
