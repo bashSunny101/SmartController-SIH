@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import {BACKEND_URI} from "../../env_variables";
 
 function PatchManagement() {
+  const [totalHardware,settotalHardware] = useState("");
+  const [pendingUpdate,setPendingUpdate] = useState("");
+  const [patchedDevices,setpatchedDevices] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${BACKEND_URI}/hardware/get_hardware_details`
+        );
+        console.log(response.data);
+        
+        const pendHardware = response.data.counts[0].pendingUpdate;
+        const totallHardware = response.data.counts[0].totalHardware;
+        const patchHardware= response.data.counts[0].patchedDevices;
+
+        setPendingUpdate(pendHardware);
+        settotalHardware(totallHardware);
+setpatchedDevices(patchHardware);
+        
+      } catch (error) {}
+      
+    };
+
+    fetchData();
+
+    const interval = setInterval(fetchData, 30000); 
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <div className=" border-gray-800 flex-col justify-center items-center h-screen  ">
@@ -8,16 +40,16 @@ function PatchManagement() {
           <div className="flex-col container  bg-gray-800">
             <div className="flex justify-start  text-2xl ">
               <div className="border-2 p-2 rounded-md flex-col bg-slate-800  ">
-                <p>Hardware Devices</p>
-                <p className="text-center text-2xl text-blue-600">23</p>
+                <div>Hardware Devices</div>
+                <div className="text-center text-2xl text-blue-600">{totalHardware}</div>
               </div>
               <div className="border-2 p-2 rounded-md flex-col bg-slate-800">
-                <p>Patched Devices</p>
-                <p className="text-center text-2xl text-blue-600">12</p>
+                <div>Patched Devices</div>
+                <div className="text-center text-2xl text-blue-600">{patchedDevices}</div>
               </div>
               <div className="border-2 p-2 rounded-md flex-col bg-slate-800">
-                <p>Pending Patches</p>
-                <p className="text-center text-2xl text-blue-600">4</p>
+                <div>Pending Patches</div>
+                <div className="text-center text-2xl text-blue-600">{pendingUpdate}</div>
               </div>
             </div>
             <table className="mt-4 min-w-full  text-2xl">
@@ -50,8 +82,8 @@ function PatchManagement() {
           <div className="flex-col w-full bg-gray-800 ">
             <div className="flex justify-between">
               <div className=" p-2 rounded-md flex-col ">
-                <p className="font-bold ">Patch Update Logs</p>
-                <p className="text-center text-2xl text-gray-200 w-full">
+                <div className="font-bold ">Patch Update Logs</div>
+                <div className="text-center text-2xl text-gray-200 w-full">
                   <table className="mt-4 min-w-full">
                     <thead>
                       <tr>
@@ -76,11 +108,11 @@ function PatchManagement() {
                       </tr>
                     </tbody>
                   </table>
-                </p>
+                </div>
               </div>
               <div className=" p-2 rounded-md flex-col">
-                <p className="font-bold">Pending Patch Updations</p>
-                <p className="text-center text-2xl text-gray-200 ">
+                <div className="font-bold">Pending Patch Updations</div>
+                <div className="text-center text-2xl text-gray-200 ">
                   <table className="mt-4 min-w-full">
                     <thead>
                       <tr>
@@ -105,7 +137,7 @@ function PatchManagement() {
                       </tr>
                     </tbody>
                   </table>
-                </p>
+                </div>
               </div>
             </div>
           </div>

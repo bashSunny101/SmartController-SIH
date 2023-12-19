@@ -31,18 +31,18 @@ function Dashboard() {
         return <AdminPanel/>;
       case "Dash":
         return <Dash />;
-      case "Timeline":
-        return <Timeline />;
-      case "Component Monitoring":
-        return <ComponentMonitoring />;
-      case "Hardware Management":
-        return <HardwareManagement />;
+      // case "Timeline":
+      //   return <Timeline />;
+      // case "Component Monitoring":
+      //   return <ComponentMonitoring />;
+      // case "Hardware Management":
+      //   return <HardwareManagement />;
       case "Patch Management":
         return <PatchManagement />;
-      case "Security Center":
-        return <SecurityCenter />;
-      default:
-        return null;
+      // case "Security Center":
+      //   return <SecurityCenter />;
+      // default:
+      //   return null;
     }
   };
   return (
@@ -78,36 +78,36 @@ function Dashboard() {
               />
             </button>
           
-              <button onClick={() => handleToggleClick("Timeline")}>
+              {/* <button onClick={() => handleToggleClick("Timeline")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="small" />}
                 prop="Grid Utility"
               />
-            </button>
-            <button onClick={() => handleToggleClick("Component Monitoring")}>
+            </button> */}
+            {/* <button onClick={() => handleToggleClick("Component Monitoring")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Component Monitoring"
               />
-            </button>
-            <button onClick={() => handleToggleClick("Hardware Management")}>
+            </button> */}
+            {/* <button onClick={() => handleToggleClick("Hardware Management")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Hardware Management"
               />
-            </button>
+            </button> */}
             <button onClick={() => handleToggleClick("Patch Management")}>
               <PanelGrid
-                icon={<AnalyticsIcon fontSize="large" />}
+                icon={<AnalyticsIcon fontSize="small" />}
                 prop="Patch Management"
               />
             </button>
-            <button onClick={() => handleToggleClick("Security Center")}>
+            {/* <button onClick={() => handleToggleClick("Security Center")}>
               <PanelGrid
                 icon={<AnalyticsIcon fontSize="large" />}
                 prop="Security Center"
               />
-            </button>   
+            </button>    */}
           </div>
 
           <div className="scroll">{renderComponent()}</div>

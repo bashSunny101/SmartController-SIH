@@ -103,7 +103,7 @@ function AdminPanel() {
       ) : (
         <>
           <div className=" h-screen ">
-            <div className="border-2 flex justify-center ">
+            {/* <div className="border-2 flex justify-center ">
               <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
                 <div className="mt-2 mb-2">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">
@@ -126,7 +126,7 @@ function AdminPanel() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="border-2 mt-4 flex justify-center ">
               <div className="max-w-lg m-4 bg-white rounded shadow-lg p-6 ">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-6">
