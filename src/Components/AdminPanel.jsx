@@ -17,7 +17,8 @@ function AdminPanel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URI}/admin/get_roles`);
+        const response = await axios.get(`${BACKEND_URI}/admin/get_roles`,
+        );
         if (response.data && Array.isArray(response.data.data)) {
           setRoles(response.data.data);
         }

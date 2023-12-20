@@ -20,13 +20,11 @@ function ComponentMonitoring() {
         <div  >
           <div className="flex-col container  bg-black">
             <div className="flex justify-between  text-2xl w-screen">
-              <div className=" p-2  flex-col  ">
+              <div className=" p-2  flex  justify-between ">
                 <p className="font-bold text-yellow-500">Power Generation Components</p>
-              </div>
-              <div >
-                
                 <p className="text-green-500 text-2xl font-bold">Live</p>
               </div>
+              
             </div>
             <table className="mt-4 text-2xl w-full">
               <thead>
@@ -59,13 +57,11 @@ function ComponentMonitoring() {
         <div  className="mt-6">
           <div className="flex-col container  bg-black">
             <div className="flex justify-between  text-2xl w-screen">
-              <div className=" p-2  flex-col  ">
+              <div className=" p-2  flex justify-between  ">
                 <p className="font-bold text-blue-500">Power Consumption Components</p>
-              </div>
-              <div >
-                
                 <p className="text-green-500 text-2xl font-bold">Live</p>
               </div>
+                
             </div>
             <table className="mt-4 text-2xl w-full">
               <thead>
@@ -98,11 +94,8 @@ function ComponentMonitoring() {
         <div  className="mt-6">
           <div className="flex-col container  bg-black">
             <div className="flex justify-between  text-2xl w-screen">
-              <div className=" p-2  flex-col  ">
+              <div className=" p-2  flex justify-between  ">
                 <p className="font-bold text-green-500">Energy Storage</p>
-              </div>
-              <div >
-                
                 <p className="text-green-500 text-2xl font-bold">Live</p>
               </div>
             </div>

@@ -65,7 +65,7 @@ function Verify({ onVerificationSuccess }) {
                 <p>Email Verification</p>
               </div>
               <div className="flex flex-row text-sm font-medium text-gray-400">
-                <p>We have sent a code to your email {userEmail}</p>
+                <p>We have sent a code to your app</p>
               </div>
             </div>
 

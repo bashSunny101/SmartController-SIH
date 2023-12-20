@@ -171,7 +171,7 @@ const Dash = () => {
       try {
         const token = localStorage.getItem('token');
         var response = await axios.get(
-          `${BACKEND_URI}/dashboard/get_dashboard`, {headers:{'token':token}});
+          `${BACKEND_URI}/dashboard/get_dashboard`, );
         await sleep(2000);
 
         response = response.data;
