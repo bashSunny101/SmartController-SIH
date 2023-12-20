@@ -17,6 +17,7 @@ const AlertTable = ({ alerts }) => {
 
     <div className="overflow-x-auto rounded-xl">
       <table className="min-w-full bg-gray-400">
+
         <thead className="border-b">
           <tr>
             <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -41,8 +42,8 @@ const AlertTable = ({ alerts }) => {
         </thead>
         <tbody>
           {alerts.map((alert) => (
-            <tr className="border-b" key={alert_id}>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{alert_id}</td>
+            <tr className="border-b" key={alert._id}>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{alert.alert_id}</td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{alert.createdAt}</td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{alert.type}</td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{alert.severity}</td>
