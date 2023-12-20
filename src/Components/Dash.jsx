@@ -235,6 +235,9 @@ const Dash = () => {
         if (utility_status === "inactive") {
           setUtility_Status("Operating in Island Mode");
         }
+        else{
+          setUtility_Status("Connected to Microgrid");
+        }
       } catch (error) {}
       const production = convertDataProduction(response.weekly_data);
       const consumption = convertDataConsumption(response.weekly_data);
