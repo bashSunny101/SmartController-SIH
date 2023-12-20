@@ -248,7 +248,6 @@ const Dash = () => {
     };
 
     fetchData();
-    console.log("to push")
 
     const interval = setInterval(fetchData, 30000); // 30000 milliseconds = 30 seconds
 
