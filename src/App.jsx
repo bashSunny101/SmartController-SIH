@@ -16,6 +16,7 @@ import DetailedSecurityLogs from "./Components/DetailedSecurityLogs";
 import DetailedHoneypotAlert from "./Components/DetailedHoneypotAlert";
 
 
+
 function App() {
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
   const [isVerified, setIsVerified] = useState(false);

@@ -70,7 +70,7 @@ function AdminPanel() {
   <>
     <div className="flex">
       {qr ? (
-        <div className="border-2 ml-56 flex justify-center ">
+        <div className="border-2 ml-32 flex justify-center ">
           {qr && (
             <>
               <img

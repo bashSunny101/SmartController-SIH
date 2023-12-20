@@ -89,7 +89,7 @@ function Verify({ onVerificationSuccess }) {
                   <div className="flex flex-col space-y-5">
                     <div>
                       <button
-                        className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-gray-600 border-none text-gray-400 text-sm shadow-sm"
+                        className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none p-5 bg-gray-600 border-none text-gray-400 text-sm shadow-sm"
                         onClick={handleVerification}
                       >
                         Verify Account
