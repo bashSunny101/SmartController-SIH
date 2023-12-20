@@ -16,7 +16,6 @@ import PatchManagement from "./PatchManagement";
 import HardwareManagement from "./HardwareManagement";
 import SecurityCenter from "./SecurityCenter";
 import AdminPanel from "./AdminPanel";
-import axios from "axios";
 
 function Dashboard() {
   let compType = localStorage.getItem("prp") || "Dash";

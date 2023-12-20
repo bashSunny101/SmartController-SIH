@@ -239,12 +239,7 @@ const Dash = () => {
           setUtility_Status("Connected to Microgrid");
         }
       } catch (error) {}
-      const production = convertDataProduction(response.weekly_data);
-      const consumption = convertDataConsumption(response.weekly_data);
-      exports.production;
-      exports.consumption;
-      // console.log("production: ", production);
-      // console.log("consumption: ", consumption);
+      
     };
 
     fetchData();

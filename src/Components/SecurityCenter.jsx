@@ -1,50 +1,87 @@
+import { useState, useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { BACKEND_URI } from "../../env_variables";
 
-
-const alerts = [
-  { type: "SQL Injection Attempt", severity: "High", count: 3 },
-  { type: "Cross-Site Scripting (XSS)", severity: "Medium", count: 5 },
-  { type: "Directory Traversal", severity: "Low", count: 2 },
-  { type: "Brute Force Attack on Login", severity: "Critical", count: 7 },
-  { type: "Failed Login Attempt", severity: "High", count: 5 },
-];
-
-const logs = [
-  {
-    timestamp: "2023-01-22 09:20 AM",
-    userId: "admin",
-    ip: "192.168.1.100",
-    action: "Login Success",
-  },
-  {
-    timestamp: "2023-01-22 09:30 AM",
-    userId: "intruder",
-    ip: "192.168.1.200",
-    action: "Login Failure",
-  },
-  {
-    timestamp: "2023-01-22 09:30 AM",
-    userId: "intruder",
-    ip: "192.168.1.200",
-    action: "Login Failure",
-  },
-  {
-    timestamp: "2023-01-22 09:30 AM",
-    userId: "intruder",
-    ip: "192.168.1.200",
-    action: "Login Failure",
-  },
-  {
-    timestamp: "2023-01-22 09:30 AM",
-    userId: "intruder",
-    ip: "192.168.1.200",
-    action: "Login Failure",
-  },
-  // ... more logs
-];
 
 function SecurityCenter() {
+  const [securityAlerts, setSecurityAlerts] = useState(0);
+  const [blockedUsers, setBlockedUsers] = useState(0);
+  const [honeypotAlerts, setHoneypotAlerts] = useState(0);
+  const [surveillanceUsers, setSurveillanceUserCount] = useState(0);
+  const [timeframe, setTimeframe] = useState('day');
+  const [timeframe1, setTimeframe1] = useState('day');
+  const [alerts, setAlertData] = useState([]);
+  const [alerts1, setAlertData1] = useState([]);
+
+  const handleTimeframeChange = (event) => {
+    setTimeframe(event.target.value);
+    console.log(event.target.value);
+  };
+  const handleTimeframeChange1 = (event) => {
+    setTimeframe(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const timeframeToEndpoint = (timeframe) => {
+    switch(timeframe) {
+      case 'Last 24 Hours':
+        setTimeframe(day);
+      case 'Last 7 Days':
+        setTimeframe(week);
+      case 'Last 30 Days':
+        setTimeframe(month);
+      default:
+        setTimeframe(day);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if(timeframe == "Last 24 Hours"){
+          setTimeframe('day');
+        }
+        else if(timeframe == "Last 7 Days"){
+          setTimeframe('week');
+        }else if(timeframe == "Last 30 Days"){
+          setTimeframe('month');
+        }
+
+        if(timeframe1 == "Last 24 Hours"){
+          setTimeframe('day');
+        }
+        else if(timeframe1 == "Last 7 Days"){
+          setTimeframe('week');
+        }else if(timeframe1 == "Last 30 Days"){
+          setTimeframe('month');
+        }
+        const response = await axios.get(`${BACKEND_URI}/alert/get_security_logs/${timeframe}`);
+        const response2 = await axios.get(`${BACKEND_URI}/alert/latest_24_hours`);
+        const response3 = await axios.get(`${BACKEND_URI}/alert/get_honeypot_logs/${timeframe1}`);
+        const statdata=response2.data;
+        const data = response.data;
+        const data1 = response3.data;
+        console.log(data);
+        console.log(data1);
+
+        if (data && data.success) {
+          setSecurityAlerts(statdata.totalSecurityAlerts);
+          setHoneypotAlerts(statdata.totalHoneypotAlerts);
+          setBlockedUsers(statdata.blockedUserCount);
+          setSurveillanceUserCount(statdata.surveillanceUserCount);
+          setAlertData(data.logs); // Update this based on your actual data structure
+          setAlertData1(data1.logs); // Update this based on your actual data structure
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [timeframe],[timeframe1]);
+
   return (
     <>
     <div className="h-screen">
@@ -53,19 +90,19 @@ function SecurityCenter() {
         <div className=" text-white p-2 rounded-lg flex justify-between items-center w-full  ">
           <div className="flex flex-col items-center border-r-2 px-2">
             <span className="text-lg font-medium">Security Alerts</span>
-            <span className="text-lg font-bold">52</span>
+            <span className="text-lg font-bold">{securityAlerts}</span>
           </div>
           <div className="flex flex-col items-center border-r-2 px-2">
             <span className="text-lg font-medium">Blocked Users</span>
-            <span className="text-lg font-bold">52</span>
+            <span className="text-lg font-bold">{blockedUsers}</span>
           </div>
           <div className="flex flex-col items-center border-r-2 px-2">
             <span className="text-lg font-medium">Surveillance Users</span>
-            <span className="text-lg font-bold">65</span>
+            <span className="text-lg font-bold">{surveillanceUsers}</span>
           </div>
           <div className="flex flex-col items-center border-r-2 px-2">
             <span className="text-lg font-medium">Honeypot Alerts</span>
-            <span className="text-lg font-bold">32</span>
+            <span className="text-lg font-bold">{honeypotAlerts}</span>
           </div>
           <div className="flex items-center ">
             <span className="text-lg font-medium text-green-400">●</span>
@@ -79,7 +116,8 @@ function SecurityCenter() {
               Security Alerts
             </h1>
             <div className="relative">
-              <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500 text-sm">
+              <select onChange={handleTimeframeChange}
+        value={timeframe} className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500 text-sm">
                 <option>Last 24 Hours</option>
                 <option>Last 7 Days</option>
                 <option>Last 30 Days</option>
@@ -121,7 +159,7 @@ function SecurityCenter() {
                       {alert.severity}
                     </td>
                     <td className="px-4 py-2 whitespace-nowrap">
-                      {alert.count}
+                      {alert.totalAlerts}
                     </td>
                   </tr>
                 ))}
@@ -142,7 +180,8 @@ function SecurityCenter() {
               Honeypot Alerts
             </h1>
             <div className="relative">
-              <select className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500 text-sm">
+              <select onChange={handleTimeframeChange1}
+        value={timeframe1} className="bg-gray-700 text-white appearance-none py-2 px-4 rounded leading-tight focus:outline-none focus:bg-gray-600 focus:border-gray-500 text-sm">
                 <option>Last 24 Hours</option>
                 <option>Last 7 Days</option>
                 <option>Last 30 Days</option>
@@ -175,7 +214,7 @@ function SecurityCenter() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-600">
-                {alerts.map((alert, index) => (
+                {alerts1.map((alert, index) => (
                   <tr key={index}>
                     <td className="px-4 py-2 whitespace-nowrap">
                       {alert.type}
@@ -184,7 +223,7 @@ function SecurityCenter() {
                       {alert.severity}
                     </td>
                     <td className="px-4 py-2 whitespace-nowrap">
-                      {alert.count}
+                      {alert.totalAlerts}
                     </td>
                   </tr>
                 ))}
@@ -224,7 +263,7 @@ function SecurityCenter() {
                   </tr>
                 </thead>
                 <tbody>
-                  {logs.map((log, index) => (
+                  {/* {logs.map((log, index) => (
                     <tr
                       key={index}
                       className={`${
@@ -236,7 +275,7 @@ function SecurityCenter() {
                       <td className="p-2">{log.ip}</td>
                       <td className="p-2">{log.action}</td>
                     </tr>
-                  ))}
+                  ))} */}
                 </tbody>
               </table>
             </div>

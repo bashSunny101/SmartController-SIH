@@ -60,7 +60,7 @@ function ComponentMonitoring() {
           <div className="flex-col container  bg-black">
             <div className="flex justify-between  text-2xl w-screen">
               <div className=" p-2  flex-col  ">
-                <p className="font-bold text-blue-500">Power Generation Components</p>
+                <p className="font-bold text-blue-500">Power Consumption Components</p>
               </div>
               <div >
                 
@@ -99,7 +99,7 @@ function ComponentMonitoring() {
           <div className="flex-col container  bg-black">
             <div className="flex justify-between  text-2xl w-screen">
               <div className=" p-2  flex-col  ">
-                <p className="font-bold text-green-500">Power Generation Components</p>
+                <p className="font-bold text-green-500">Energy Storage</p>
               </div>
               <div >
                 
