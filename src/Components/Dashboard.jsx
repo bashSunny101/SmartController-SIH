@@ -62,7 +62,7 @@ function Dashboard() {
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <img
-                src="src\assets\image (4).svg"
+                src="src\assets\logo.svg"
                 className="h-10"
                 alt="Vidyut Logo"
               />
