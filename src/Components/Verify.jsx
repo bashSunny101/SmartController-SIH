@@ -31,11 +31,14 @@ function Verify({ onVerificationSuccess }) {
         }
       );
       console.log("here2");
-      console.log(response);
+      console.log(response.data);
       if (response.status === 200) {
+
         // Successful verification
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('role', response.data.role);
         onVerificationSuccess();
-        console.log("here");
+        console.log(localStorage.getItem("empID"), " here ", localStorage.getItem("empID"));
         navigate("/dashboard");
       } else {
         setLoginError("Invalid OTP");

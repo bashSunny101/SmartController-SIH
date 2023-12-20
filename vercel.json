@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "./src",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/dist/(.*)",
+        "dest": "/dist/$1",
+        "headers": {
+          "Cache-Control": "public, max-age=31536000, immutable"
+        }
+      }
+    ],
+    "public": true
+  }
+  
