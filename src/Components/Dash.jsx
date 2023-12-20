@@ -273,8 +273,8 @@ const Dash = () => {
             title2="Wind"
             title3="Grid"
             pow31="40KW"
-            pow32="30KW"
-            pow33="20KW"
+            pow32="37KW"
+            pow33="29KW"
           />
           <Graph
             LineData={secondArray}
@@ -282,9 +282,9 @@ const Dash = () => {
             title1="Residential"
             title2="Commercial"
             title3="Industrial"
-            pow31="40KW"
-            pow32="30KW"
-            pow33="20KW"
+            pow31="35KW"
+            pow32="10KW"
+            pow33="25KW"
           />
         </div>
         <div className="row">
