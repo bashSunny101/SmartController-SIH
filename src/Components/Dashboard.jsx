@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import PanelGrid from "./PanelGrid";
 import "./Dashboard.css";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
@@ -20,13 +21,19 @@ import AdminPanel from "./AdminPanel";
 function Dashboard() {
   let compType = localStorage.getItem("prp") || "Dash";
   const [selectedComponent, setSelectedComponent] = useState(compType);
-
-
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
+  console.log(token, " ", role);
+  
   useEffect(() => {
+    if (token == null|| role== null) {
+      navigate("/");
+    }
     if (selectedComponent) {
       localStorage.setItem("prp", selectedComponent);
     }
-  }, [selectedComponent]);
+  }, [navigate,selectedComponent]);
 
   const handleToggleClick = (component) => {
     setSelectedComponent(component);
