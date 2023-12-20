@@ -169,10 +169,11 @@ const Dash = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const token = localStorage.getItem('token');
         var response = await axios.get(
-          `${BACKEND_URI}/dashboard/get_dashboard`
-        );
+          `${BACKEND_URI}/dashboard/get_dashboard`, {headers:{'token':token}});
         await sleep(2000);
+
         response = response.data;
         let utility_status = response.utility_status.data;
         let inputTotalValue = response.grid_status.data.find(

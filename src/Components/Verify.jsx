@@ -73,7 +73,7 @@ function Verify({ onVerificationSuccess }) {
                     {otp.map((digit, index) => (
                       <div key={index} className="w-16 h-16 ">
                         <input
-                          className="w-full h-full flex flex-col items-center justify-center  px-5 outline-none rounded-xl border border-gray-200 text-lg bg-gray-400 focus:bg-gray-900 focus:ring-1 ring-blue-700"
+                          className="w-full h-full flex items-center justify-center  px-5 outline-none rounded-xl border border-gray-200 text-lg bg-gray-400 focus:bg-gray-900 focus:ring-1 ring-blue-700"
                           type="text"
                           name={`otp-${index}`}
                           value={digit}
