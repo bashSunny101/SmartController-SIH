@@ -15,8 +15,7 @@ import ComMonDetails3 from "./Components/ComMonDetails3";
 import DetailedSecurityLogs from "./Components/DetailedSecurityLogs";
 import DetailedHoneypotAlert from "./Components/DetailedHoneypotAlert";
 
-
-
+console.log("to push");
 function App() {
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
