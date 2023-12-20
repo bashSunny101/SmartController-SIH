@@ -7,6 +7,7 @@ import { BACKEND_URI } from "../../env_variables";
 import axios from "axios";
 import Table from "./table";
 
+
 let firstArray;
 let secondArray;
 
@@ -239,6 +240,10 @@ const Dash = () => {
           setUtility_Status("Connected to Microgrid");
         }
       } catch (error) {}
+      const production = convertDataProduction(response.weekly_data);
+      const consumption = convertDataConsumption(response.weekly_data);
+      exports.production;
+      exports.consumption;
       
     };
 
