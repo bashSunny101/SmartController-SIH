@@ -20,22 +20,22 @@ function SecurityCenter() {
     console.log(event.target.value);
   };
   const handleTimeframeChange1 = (event) => {
-    setTimeframe(event.target.value);
+    setTimeframe1(event.target.value);
     console.log(event.target.value);
   };
 
-  const timeframeToEndpoint = (timeframe) => {
-    switch(timeframe) {
-      case 'Last 24 Hours':
-        setTimeframe(day);
-      case 'Last 7 Days':
-        setTimeframe(week);
-      case 'Last 30 Days':
-        setTimeframe(month);
-      default:
-        setTimeframe(day);
-    }
-  };
+  // const timeframeToEndpoint = (timeframe) => {
+  //   switch(timeframe) {
+  //     case 'Last 24 Hours':
+  //       setTimeframe(day);
+  //     case 'Last 7 Days':
+  //       setTimeframe(week);
+  //     case 'Last 30 Days':
+  //       setTimeframe(month);
+  //     default:
+  //       setTimeframe(day);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,12 +66,16 @@ function SecurityCenter() {
         console.log(data);
         console.log(data1);
 
-        if (data && data.success) {
-          setSecurityAlerts(statdata.totalSecurityAlerts);
-          setHoneypotAlerts(statdata.totalHoneypotAlerts);
-          setBlockedUsers(statdata.blockedUserCount);
-          setSurveillanceUserCount(statdata.surveillanceUserCount);
+        setSecurityAlerts(statdata.totalSecurityAlerts);
+        setHoneypotAlerts(statdata.totalHoneypotAlerts);
+        setBlockedUsers(statdata.blockedUserCount);
+        setSurveillanceUserCount(statdata.surveillanceUserCount);
+        if (data && data.success){
+
           setAlertData(data.logs); // Update this based on your actual data structure
+        }
+
+        if(data1 && data1.success) {
           setAlertData1(data1.logs); // Update this based on your actual data structure
         }
       } catch (error) {

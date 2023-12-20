@@ -60,9 +60,9 @@ function AdminPanel() {
         formData
       );
       setQr(response.data);
-      alert("Form submitted successfully!");
+      alert("User Created Successfully!");
     } catch (error) {
-      alert("Failed to submit the form.");
+      alert("Failed To Create User.");
     }
   };
 

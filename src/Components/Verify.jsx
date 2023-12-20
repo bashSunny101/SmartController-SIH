@@ -69,11 +69,11 @@ function Verify({ onVerificationSuccess }) {
             <div>
               <form>
                 <div className="flex flex-col space-y-16">
-                  <div className="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
+                  <div className="flex flex-row items-center justify-between mx-auto w-full max-w-lg">
                     {otp.map((digit, index) => (
                       <div key={index} className="w-16 h-16 ">
                         <input
-                          className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-gray-400 focus:bg-gray-900 focus:ring-1 ring-blue-700"
+                          className="w-full h-full flex flex-col items-center justify-center  px-5 outline-none rounded-xl border border-gray-200 text-lg bg-gray-400 focus:bg-gray-900 focus:ring-1 ring-blue-700"
                           type="text"
                           name={`otp-${index}`}
                           value={digit}

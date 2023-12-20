@@ -250,9 +250,8 @@ const Dash = () => {
     fetchData();
     console.log("to push")
 
-    const interval = setInterval(fetchData, 30000); // 30000 milliseconds = 30 seconds
+    const interval = setInterval(fetchData, 30000); 
 
-    // Clean up interval on component unmount
     return () => clearInterval(interval);
   }, []);
 

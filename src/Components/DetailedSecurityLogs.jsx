@@ -9,6 +9,29 @@ const alerts = [
 
 // The Table component
 const AlertTable = ({ alerts }) => {
+  useEffect(() => {
+    const fetchAlerts = async () => {
+      try {
+        const response = await axios.get("https://vidyutX.vidyutkavach.live/alert/get_security_logs");
+        if (response.data && response.data.success) {
+          // Transform the data to the required format
+          const transformedAlerts = response.data.data.map(item => ({
+            id: item._id, // Using _id as id
+            timestamp: new Date(item.createdAt).toLocaleString(), // Converting to local string
+            type: item.type,
+            severity: item.severity,
+            attackerIP: item.attacker_ip,
+            response: item.action // Assuming 'action' is equivalent to 'response'
+          }));
+          setAlerts(transformedAlerts);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchAlerts();
+  }, []);
   return (
 
     <div className="m-5">
