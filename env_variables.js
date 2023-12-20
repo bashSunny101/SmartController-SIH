@@ -1,1 +1,1 @@
-export const BACKEND_URI = 'https://vidyutX.vidyutkavach.live'
+export const BACKEND_URI = 'http://34.131.136.207:3000'

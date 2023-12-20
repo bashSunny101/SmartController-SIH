@@ -155,6 +155,11 @@ function PatchManagement() {
         <div className=" text-gray-400  border-2 flex-col mx-auto my-8 p-6 rounded-lg flex justify-center">
           <h3 className="font-bold text-white">Add New Patch</h3>
           <div className="flex  gap-4">
+            {/* <input
+              className="bg-gray-800 p-2 rounded focus:outline-none focus:ring focus:border-blue-300"
+              type="text"
+              placeholder="ID"
+            /> */}
             <input
               className="bg-gray-800 p-2 rounded focus:outline-none focus:ring focus:border-blue-300"
               type="text"

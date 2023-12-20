@@ -17,7 +17,9 @@ function AdminPanel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URI}/admin/get_roles`,
+        const token = localStorage.getItem('token');
+        console.log(token);
+        const response = await axios.get(`${BACKEND_URI}/admin/get_roles`,{headers:{'token':token}}
         );
         if (response.data && Array.isArray(response.data.data)) {
           setRoles(response.data.data);
@@ -56,9 +58,11 @@ function AdminPanel() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const token = localStorage.getItem('token');
       const response = await axios.post(
         `${BACKEND_URI}/admin/signup`,
-        formData
+        formData,
+        {headers:{'token':token}}
       );
       setQr(response.data);
       alert("User Created Successfully!");

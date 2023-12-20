@@ -24,19 +24,6 @@ function SecurityCenter() {
     console.log(event.target.value);
   };
 
-  // const timeframeToEndpoint = (timeframe) => {
-  //   switch(timeframe) {
-  //     case 'Last 24 Hours':
-  //       setTimeframe(day);
-  //     case 'Last 7 Days':
-  //       setTimeframe(week);
-  //     case 'Last 30 Days':
-  //       setTimeframe(month);
-  //     default:
-  //       setTimeframe(day);
-  //   }
-  // };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -172,7 +159,7 @@ function SecurityCenter() {
           </div>
           <div className="flex justify-end mt-4">
             <Link to="/DetailedSecurityLogs">
-            <button className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none" >
+            <button  className="text-sm py-2 px-4 border-2 rounded bg-gray-800 hover:bg-gray-600 focus:outline-none" >
               View Detailed Security Alert Logs
             </button>
             </Link>
