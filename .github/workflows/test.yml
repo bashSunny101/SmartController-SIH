@@ -1,0 +1,21 @@
+name: Server tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        working-directory: server
+        run: npm ci
+      - name: Run tests
+        working-directory: server
+        run: npm test

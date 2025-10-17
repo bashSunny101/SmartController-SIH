@@ -63,15 +63,8 @@ function Dashboard() {
       <div>
         <nav className=" back bg-white dark:bg-gray-900  z-20 top-0 sticky start-0 border-b border-gray-200 dark:border-gray-600">
           <div className="flex flex-wrap items-center justify-between mx-auto p-4 nav">
-            <a
-              href="/"
-              className="flex items-center space-x-3 rtl:space-x-reverse"
-            >
-              <img
-                src="src\assets\logo.svg"
-                className="h-10"
-                alt="Vidyut Logo"
-              />
+            <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img src="/assets/logo.svg" className="h-10" alt="Vidyut Logo" />
             </a>
             <div className="admin">Admin</div>
           </div>

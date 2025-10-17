@@ -36,12 +36,7 @@ function App() {
           element={
             <div className="flex-col p-8 text-center">
               <div className="flex flex-col items-center mb-11">
-                <img
-                  src="src\assets\logo.svg"
-                  alt="logo"
-                  width={350}
-                  height={79}
-                />
+                <img src="/assets/logo.svg" alt="logo" width={350} height={79} />
                 <div className="text-white  font-light">
                   Secure Grids, Smarter Connections
                 </div>
@@ -53,10 +48,7 @@ function App() {
                   <div className="p-4 flex-grow">
                     {" "}
                     {/* First item */}
-                    <img
-                      src="src\assets\My Video.gif"
-                      alt="microgrid animation"
-                    />
+                    <img src="/assets/My Video.gif" alt="microgrid animation" />
                   </div>
                   <div className="inline-block h-auto w-1 rounded-xl self-stretch bg-gray-500 opacity-100 dark:opacity-50"></div>{" "}
                   {/* Divider */}
