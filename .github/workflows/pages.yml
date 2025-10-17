@@ -20,6 +20,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Inject BACKEND_URL into frontend (optional)
+        if: env.BACKEND_URL != '' || secrets.BACKEND_URL != ''
+        env:
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+        run: |
+          echo "// Injected by CI - do not commit\nexport const BACKEND_URI = '${{ secrets.BACKEND_URL }}'" > ./env_variables.js
+
       - name: Build
         run: npm run build
 
